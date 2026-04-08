@@ -8,7 +8,13 @@ const sourcePath = resolve(projectRoot, "../LLM_feedback/llm_feedback.json");
 const targetPath = resolve(projectRoot, "public/data/llm_feedback.json");
 
 if (!existsSync(sourcePath)) {
+  if (existsSync(targetPath)) {
+    console.log(`Using bundled LLM feedback at ${targetPath}`);
+    process.exit(0);
+  }
+
   console.error(`Missing LLM feedback source file: ${sourcePath}`);
+  console.error(`No bundled fallback found at: ${targetPath}`);
   process.exit(1);
 }
 
