@@ -1,0 +1,730 @@
+:root {
+  --bg-1: #f7f1e6;
+  --bg-2: #eef4f3;
+  --surface: rgba(255, 252, 247, 0.82);
+  --surface-strong: #fffdfa;
+  --surface-muted: rgba(255, 255, 255, 0.7);
+  --text: #18212f;
+  --muted: #596579;
+  --line: rgba(24, 33, 47, 0.12);
+  --shadow: 0 24px 60px rgba(24, 33, 47, 0.12);
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --compare: #b45309;
+  --compare-strong: #92400e;
+  --compare-soft: rgba(180, 83, 9, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+}
+
+.app {
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.13), transparent 34%),
+    radial-gradient(circle at top right, rgba(180, 83, 9, 0.12), transparent 28%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 58%, #edf2f7 100%);
+}
+
+.appShell {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 32px 18px 48px;
+}
+
+.card,
+.panelCard,
+.modalCard {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 18px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -60% auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.18), transparent 65%);
+  pointer-events: none;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(24, 33, 47, 0.06);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroTitle,
+.emptyTitle,
+.modalTitle {
+  margin: 14px 0 10px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+}
+
+.heroText,
+.emptyText,
+.modalText {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.heroStats {
+  display: grid;
+  gap: 12px;
+}
+
+.statCard {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.52));
+  padding: 16px 18px;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.statValue {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.statValueSm {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.statusBanner {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 18px;
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.statusBanner--warn {
+  border-color: rgba(180, 83, 9, 0.24);
+  background: rgba(180, 83, 9, 0.09);
+  color: var(--compare-strong);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+  padding: 18px;
+}
+
+.control {
+  grid-column: span 3;
+  min-width: 0;
+}
+
+.controlActions {
+  grid-column: span 3;
+}
+
+.controlDescription {
+  grid-column: 1 / -1;
+}
+
+.controlLabel,
+.sectionLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.select,
+.btn,
+.candidateCard {
+  font: inherit;
+}
+
+.select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-strong);
+  color: var(--text);
+  padding: 13px 14px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.select:focus,
+.btn:focus-visible,
+.candidateCard:focus-visible {
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.14);
+}
+
+.buttonRow,
+.modalActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actionHint {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text);
+  padding: 11px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.btn:hover,
+.candidateCard:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnAccent {
+  border-color: rgba(15, 118, 110, 0.32);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #ffffff;
+}
+
+.btnGhost {
+  background: transparent;
+}
+
+.descriptionCard {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface-muted);
+  padding: 16px 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.methodIdentity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.methodIdentity--compact {
+  gap: 8px;
+}
+
+.methodIdentityMain {
+  display: inline-grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.methodIdentityText {
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.methodBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.methodIdentity--compact .methodBadge {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 8px;
+}
+
+.methodIdentity--compact .methodIdentityText {
+  font-size: 13px;
+}
+
+.summaryDivider {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.emptyState {
+  margin-top: 18px;
+  padding: 26px;
+}
+
+.emptyEyebrow {
+  color: var(--compare-strong);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.summaryStrip {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 14px;
+}
+
+.summaryChip,
+.panelPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.summaryChip {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--muted);
+}
+
+.summaryChip--accent {
+  border-color: rgba(15, 118, 110, 0.2);
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--accent-strong);
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.llmFeedbackCard {
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.llmFeedbackHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.llmFeedbackTitle {
+  margin: 12px 0 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+}
+
+.llmConsensusBadge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.09);
+  color: var(--accent-strong);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.llmFeedbackGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.llmFeedbackPane,
+.llmReasonBlock {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  padding: 16px;
+}
+
+.llmFeedbackMeta,
+.llmReasonText {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.llmFeedbackMeta {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.llmFeedbackMetaStrong,
+.llmWinnerFallback {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.llmReasonBlock {
+  margin-top: 14px;
+}
+
+.panelGrid--compare {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panelCard {
+  overflow: hidden;
+}
+
+.panelCard--primary {
+  border-color: rgba(15, 118, 110, 0.18);
+}
+
+.panelCard--compare {
+  border-color: rgba(180, 83, 9, 0.18);
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.18));
+}
+
+.panelPill {
+  margin-bottom: 12px;
+}
+
+.panelPill--primary {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.panelPill--compare {
+  background: var(--compare-soft);
+  color: var(--compare-strong);
+}
+
+.panelTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.panelTitleWrap .methodIdentity {
+  align-items: flex-start;
+}
+
+.panelTitleWrap .methodIdentityText {
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+
+.panelSub,
+.panelNote,
+.accMeta,
+.microDesc,
+.textBlock,
+.kvVal {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.panelSub {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.panelNote {
+  max-width: 240px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.panelBody {
+  max-height: 72vh;
+  overflow: auto;
+  padding: 18px 20px 22px;
+}
+
+.stack,
+.kv {
+  display: grid;
+  gap: 12px;
+}
+
+.accordion,
+.kvRow,
+.tableWrap,
+.pre {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.accordionSummary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.accordionSummary::-webkit-details-marker {
+  display: none;
+}
+
+.accTitle,
+.microName {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.accordionBody {
+  padding: 0 16px 16px;
+}
+
+.bullets {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.bullets li {
+  margin: 7px 0;
+}
+
+.bulletKey,
+.kvKey {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.textInline {
+  display: inline;
+}
+
+.textBlock {
+  word-break: break-word;
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  background: rgba(247, 241, 230, 0.94);
+  z-index: 1;
+}
+
+.kvRow,
+.pre {
+  padding: 14px 15px;
+}
+
+.kvKey {
+  margin-bottom: 8px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(24, 33, 47, 0.42);
+}
+
+.modalCard {
+  width: min(860px, 100%);
+  padding: 22px;
+}
+
+.candidateGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.candidateCard {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.candidateCard--selected {
+  border-color: rgba(15, 118, 110, 0.44);
+  background: rgba(15, 118, 110, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.1);
+}
+
+.candidateTitle {
+  color: var(--text);
+}
+
+.candidateMeta {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 1120px) {
+  .hero,
+  .panelGrid--compare {
+    grid-template-columns: 1fr;
+  }
+
+  .llmFeedbackGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .control,
+  .controlActions {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .appShell {
+    padding-inline: 14px;
+  }
+
+  .hero,
+  .controls {
+    padding: 18px;
+  }
+
+  .control,
+  .controlActions,
+  .controlDescription {
+    grid-column: 1 / -1;
+  }
+
+  .panelHeader {
+    flex-direction: column;
+  }
+
+  .llmFeedbackHeader {
+    flex-direction: column;
+  }
+
+  .panelNote {
+    max-width: none;
+    text-align: left;
+  }
+
+  .panelBody {
+    max-height: none;
+  }
+}

@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  min-width: 320px;
+  color: #18212f;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
