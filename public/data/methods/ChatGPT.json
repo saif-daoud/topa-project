@@ -511,135 +511,110 @@
       "confidence_score": 0.89
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Cognitive Style",
-      "Description": "Typical way the patient interprets events and constructs meaning, influencing automatic thoughts and core beliefs.",
-      "categorical values": [
-        "analytical",
-        "intuitive",
-        "ruminative",
-        "concrete",
-        "abstract"
-      ],
-      "Numerical values": "0 = highly flexible and balanced thinking, 1 = rigid and biased thinking patterns"
-    },
-    {
-      "Dimension Name": "Emotional Reactivity",
-      "Description": "Baseline intensity and speed of emotional responses to internal or external triggers.",
-      "categorical values": [
-        "low",
-        "moderate",
-        "high",
-        "volatile"
-      ],
-      "Numerical values": "0 = emotionally stable with low reactivity, 1 = intense and rapidly escalating emotional responses"
-    },
-    {
-      "Dimension Name": "Behavioral Activation Level",
-      "Description": "General tendency to engage in goal-directed, rewarding, or avoidance-related behaviors.",
-      "categorical values": [
-        "withdrawn",
-        "situationally active",
-        "consistently active",
-        "overactive"
-      ],
-      "Numerical values": "0 = severely inactive or avoidant, 1 = highly active and behaviorally engaged"
-    },
-    {
-      "Dimension Name": "Insight into Difficulties",
-      "Description": "Degree to which the patient understands their own thoughts, emotions, and behavioral patterns.",
-      "categorical values": [
-        "low insight",
-        "emerging insight",
-        "moderate insight",
-        "high insight"
-      ],
-      "Numerical values": "0 = little to no awareness of internal processes, 1 = strong reflective understanding of patterns"
-    },
-    {
-      "Dimension Name": "Motivation for Change",
-      "Description": "Stable readiness and willingness to engage in therapeutic work and behavior change.",
-      "categorical values": [
-        "resistant",
-        "ambivalent",
-        "motivated",
-        "highly motivated"
-      ],
-      "Numerical values": "0 = no desire for change, 1 = strong and sustained commitment to change"
-    },
-    {
-      "Dimension Name": "Therapeutic Alliance Orientation",
-      "Description": "Typical way the patient relates to and collaborates with the therapist.",
-      "categorical values": [
-        "guarded",
-        "dependent",
-        "collaborative",
-        "skeptical"
-      ],
-      "Numerical values": "0 = distrustful or disengaged stance, 1 = open, collaborative partnership"
-    },
-    {
-      "Dimension Name": "Emotional Expression Style",
-      "Description": "How emotions are usually communicated during sessions.",
-      "categorical values": [
-        "restricted",
-        "controlled",
-        "expressive",
-        "overexpressive"
-      ],
-      "Numerical values": "0 = minimal emotional expression, 1 = intense and frequent emotional expression"
-    },
-    {
-      "Dimension Name": "Coping Style",
-      "Description": "Habitual strategies used to manage stress and negative emotions.",
-      "categorical values": [
-        "avoidant",
-        "emotion-focused",
-        "problem-focused",
-        "mixed"
-      ],
-      "Numerical values": "0 = predominantly maladaptive coping, 1 = predominantly adaptive coping"
-    },
-    {
-      "Dimension Name": "Cognitive Flexibility",
-      "Description": "Ability to consider alternative perspectives and update beliefs when presented with evidence.",
-      "categorical values": [
-        "rigid",
-        "somewhat flexible",
-        "flexible"
-      ],
-      "Numerical values": "0 = very rigid beliefs, 1 = highly flexible and adaptive thinking"
-    },
-    {
-      "Dimension Name": "Interpersonal Sensitivity",
-      "Description": "Sensitivity to perceived evaluation, rejection, or interpersonal feedback.",
-      "categorical values": [
-        "low",
-        "moderate",
-        "high"
-      ],
-      "Numerical values": "0 = little concern about others’ evaluations, 1 = highly sensitive to interpersonal cues"
-    },
-    {
-      "Dimension Name": "Self-Efficacy Belief",
-      "Description": "General belief in one’s ability to cope with challenges and implement change.",
-      "categorical values": [
-        "low",
-        "moderate",
-        "high"
-      ],
-      "Numerical values": "0 = strong sense of helplessness, 1 = strong belief in personal competence"
-    },
-    {
-      "Dimension Name": "Response to Structure",
-      "Description": "Preference and tolerance for structured interventions such as homework, agendas, and worksheets.",
-      "categorical values": [
-        "averse to structure",
-        "neutral",
-        "structure-seeking"
-      ],
-      "Numerical values": "0 = resists structure and tasks, 1 = strongly prefers clear structure and guidance"
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Primary_Issue_Type",
+        "description": "The main psychological difficulty the patient presents with in therapy.",
+        "options": ["depression", "anxiety", "stress", "trauma", "relationship_issues", "low_self_esteem", "other"]
+      },
+      {
+        "dimension_name": "Emotional_Regulation_Level",
+        "description": "The patient's typical ability to manage and regulate emotions during daily life and sessions.",
+        "options": ["low", "moderate", "high"]
+      },
+      {
+        "dimension_name": "Cognitive_Distortion_Tendency",
+        "description": "The degree to which the patient exhibits distorted thinking patterns.",
+        "options": ["rare", "occasional", "frequent"]
+      },
+      {
+        "dimension_name": "Engagement_Level",
+        "description": "How actively the patient participates in therapy sessions.",
+        "options": ["passive", "moderate", "active"]
+      },
+      {
+        "dimension_name": "Motivation_for_Change",
+        "description": "The patient’s readiness and willingness to engage in behavioral and cognitive change.",
+        "options": ["low", "ambivalent", "high"]
+      },
+      {
+        "dimension_name": "Insight_Level",
+        "description": "The patient’s ability to reflect on and understand their own thoughts and behaviors.",
+        "options": ["low", "moderate", "high"]
+      },
+      {
+        "dimension_name": "Communication_Style",
+        "description": "The typical way the patient expresses thoughts and emotions.",
+        "options": ["reserved", "balanced", "expressive"]
+      },
+      {
+        "dimension_name": "Coping_Strategy_Type",
+        "description": "The dominant coping mechanisms the patient uses.",
+        "options": ["avoidant", "emotion_focused", "problem_focused", "maladaptive"]
+      },
+      {
+        "dimension_name": "Therapeutic_Alliance_Level",
+        "description": "The strength of trust and collaboration between patient and therapist.",
+        "options": ["weak", "moderate", "strong"]
+      },
+      {
+        "dimension_name": "Session_Adherence",
+        "description": "How consistently the patient follows therapy tasks and attends sessions.",
+        "options": ["low", "inconsistent", "consistent"]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Core_Beliefs",
+        "description": "Deeply held beliefs about self, others, and the world that influence the patient’s cognition.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Automatic_Thoughts_Patterns",
+        "description": "Common recurring thoughts that arise in triggering situations.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Personal_History_Context",
+        "description": "Relevant life experiences or background that shape the patient’s current psychological state.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Triggering_Situations",
+        "description": "Situations or contexts that typically activate distress or maladaptive responses.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Goals_for_Therapy",
+        "description": "The patient’s personal goals and desired outcomes from therapy.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Perceived_Barriers_to_Change",
+        "description": "The patient’s beliefs about obstacles preventing improvement.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Self_Narrative",
+        "description": "How the patient describes their identity, struggles, and life story.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Emotional_Experiences_Description",
+        "description": "How the patient subjectively describes their emotional experiences.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Support_System_Description",
+        "description": "Description of the patient’s social support network and relationships.",
+        "value": ""
+      },
+      {
+        "dimension_name": "Behavioral_Patterns",
+        "description": "Recurring behaviors relevant to the patient’s difficulties and coping.",
+        "value": ""
+      }
+    ]
+  }
 }

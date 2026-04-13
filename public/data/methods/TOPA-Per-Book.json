@@ -2230,164 +2230,152 @@
       "confidence_score": 1.0
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Cognitive Style",
-      "Description": "Degree of cognitive flexibility, pattern of information processing, and tendency toward abstract vs. concrete thinking. Includes insight and self-reflection.",
-      "categorical values": [
-        "rigid",
-        "concrete",
-        "perfectionistic",
-        "flexible",
-        "abstract",
-        "literal",
-        "intellectualizing"
-      ],
-      "Numerical values": "0 = Extremely rigid/concrete thinking; 1 = Highly flexible/abstract, easily engages in metacognition"
-    },
-    {
-      "Dimension Name": "Emotional Stability and Regulation",
-      "Description": "Stability of mood, affective lability, baseline temperament, and emotion regulation capacities.",
-      "categorical values": [
-        "labile",
-        "anxious",
-        "sensitive",
-        "emotionally withdrawn",
-        "resilient",
-        "emotionally stable",
-        "irritable"
-      ],
-      "Numerical values": "0 = Extremely labile/unstable; 1 = Extremely stable/regulated"
-    },
-    {
-      "Dimension Name": "Interpersonal Functioning",
-      "Description": "Characteristic ways of relating to others, social motivation, attachment patterns, and capacity for trust, intimacy or withdrawal.",
-      "categorical values": [
-        "withdrawn",
-        "avoidant",
-        "anxious",
-        "dependent",
-        "resistant",
-        "open",
-        "trusting",
-        "superficial",
-        "disinhibited",
-        "manipulative"
-      ],
-      "Numerical values": "0 = Profound social withdrawal/mistrust; 1 = Highly engaged, trusting, and open in relationships"
-    },
-    {
-      "Dimension Name": "Coping and Behavioral Patterns",
-      "Description": "Typical stress coping strategies and behavioral patterns: avoidance, ritualistic/compulsive acts, impulsivity, adaptive engagement.",
-      "categorical values": [
-        "avoidant",
-        "compulsive",
-        "impulsive",
-        "resilient",
-        "proactive",
-        "emotionally avoidant",
-        "reassurance seeking",
-        "intellectualization"
-      ],
-      "Numerical values": "0 = Maladaptive coping predominates; 1 = Adaptive/problem-focused coping predominates"
-    },
-    {
-      "Dimension Name": "Insight and Engagement with Therapy",
-      "Description": "Degree of awareness and acceptance of mental health concerns; typical style of engagement, motivation, honesty, and alliance-building in therapy sessions.",
-      "categorical values": [
-        "good insight",
-        "poor insight",
-        "ambivalent",
-        "resistant",
-        "minimizing",
-        "seeking help",
-        "externalizing",
-        "collaborative",
-        "defensive"
-      ],
-      "Numerical values": "0 = No insight/actively resistant in session; 1 = Full insight/highly collaborative and motivated"
-    },
-    {
-      "Dimension Name": "Attachment and Developmental History",
-      "Description": "Early life experiences, parental/caregiver relationships, and their effect on attachment (secure, insecure, disinhibited, etc.) and baseline vulnerability.",
-      "categorical values": [
-        "secure",
-        "insecure",
-        "disinhibited",
-        "anxious",
-        "avoidant",
-        "history of trauma/neglect",
-        "supportive upbringing"
-      ],
-      "Numerical values": "0 = Profound attachment disruption/neglect; 1 = Secure, nurturing attachments"
-    },
-    {
-      "Dimension Name": "Cultural, Social, and Identity Factors",
-      "Description": "Stable aspects of identity (culture, race, gender, sexual orientation, beliefs), acculturation, and their impact on symptom presentation, stigma, explanatory models, and typical engagement.",
-      "categorical values": [
-        "majority culture",
-        "minority culture",
-        "stigmatized group",
-        "multicultural",
-        "acculturated",
-        "religious identity",
-        "gender minority",
-        "sexual minority"
-      ],
-      "Numerical values": "0 = High identity-related stress/discordance; 1 = Identity is affirmed and not a source of stress"
-    },
-    {
-      "Dimension Name": "Comorbidity and Medical History",
-      "Description": "Presence and impact of other psychiatric or medical conditions that shape stable traits, coping, and therapeutic process.",
-      "categorical values": [
-        "depression",
-        "anxiety",
-        "substance use",
-        "psychosis",
-        "ADHD",
-        "chronic illness",
-        "none"
-      ],
-      "Numerical values": "0 = Multiple severe comorbidities; 1 = No comorbidities, fully physically healthy"
-    },
-    {
-      "Dimension Name": "Impulsivity and Behavioral Control",
-      "Description": "Dispositional impulsivity, self-control, behavioral inhibition, and resistance to urges/aggression.",
-      "categorical values": [
-        "impulsive",
-        "compulsive",
-        "self-controlled",
-        "inhibited",
-        "disinhibited",
-        "calm"
-      ],
-      "Numerical values": "0 = Extremely impulsive/disinhibited; 1 = Extremely self-controlled/inhibited"
-    },
-    {
-      "Dimension Name": "Social and Family Support",
-      "Description": "Stability, quality, and availability of social, familial, or community supports, and their influence on engagement and outcomes.",
-      "categorical values": [
-        "robust support",
-        "limited support",
-        "isolated",
-        "conflicted family",
-        "supportive family",
-        "community involvement"
-      ],
-      "Numerical values": "0 = No/loss of support network; 1 = Highly supportive, stable network"
-    },
-    {
-      "Dimension Name": "Motivation and Readiness for Change",
-      "Description": "Typical level of internal motivation or ambivalence to change and engage in CBT; stage of change (precontemplation → action/maintenance).",
-      "categorical values": [
-        "motivated",
-        "ambivalent",
-        "precontemplative",
-        "action-oriented",
-        "externally pressured",
-        "resistant"
-      ],
-      "Numerical values": "0 = Not motivated/precontemplative; 1 = Highly motivated and ready for change"
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Temperamental Traits",
+        "description": "Patient's core temperament, such as levels of neuroticism and extraversion, influencing emotional reactivity and engagement with CBT.",
+        "options": [
+          "High Neuroticism",
+          "Low Neuroticism",
+          "High Extraversion",
+          "Low Extraversion",
+          "Moderate"
+        ]
+      },
+      {
+        "dimension_name": "Primary Coping Style",
+        "description": "Patient's dominant approach to dealing with negative emotions or stress.",
+        "options": [
+          "Behavioral Avoidance",
+          "Cognitive Avoidance",
+          "Emotion Suppression",
+          "Approach-Oriented",
+          "Mixed"
+        ]
+      },
+      {
+        "dimension_name": "Diagnostic Comorbidity",
+        "description": "Presence of multiple emotional, mood, anxiety, or other disorders.",
+        "options": [
+          "None",
+          "Single Diagnosis",
+          "Multiple Diagnoses",
+          "Medical Comorbidity"
+        ]
+      },
+      {
+        "dimension_name": "Emotional Intensity",
+        "description": "Typical strength and frequency of emotional experiences.",
+        "options": [
+          "High",
+          "Moderate",
+          "Low"
+        ]
+      },
+      {
+        "dimension_name": "Motivation for Change",
+        "description": "Patient's level of readiness, ambivalence, or willingness to engage with CBT interventions.",
+        "options": [
+          "Highly Motivated",
+          "Moderately Motivated",
+          "Ambivalent",
+          "Low Motivation"
+        ]
+      },
+      {
+        "dimension_name": "Cultural Context",
+        "description": "Ethnic, cultural, and social background impacting emotional expression, coping, and therapy engagement.",
+        "options": [
+          "Individualism",
+          "Collectivism",
+          "Acculturated",
+          "Heritage-Oriented",
+          "Mixed/Other"
+        ]
+      },
+      {
+        "dimension_name": "Social Support",
+        "description": "Degree of supportive relationships, social resources, or isolation.",
+        "options": [
+          "Strong Support",
+          "Moderate Support",
+          "Limited Support",
+          "Socially Isolated"
+        ]
+      },
+      {
+        "dimension_name": "CBT Engagement Style",
+        "description": "How the patient typically participates in CBT sessions.",
+        "options": [
+          "Structured",
+          "Open/Reflective",
+          "Avoidant",
+          "Resistant",
+          "Collaborative"
+        ]
+      },
+      {
+        "dimension_name": "Emotion Regulation Skill",
+        "description": "Level of skill in managing emotions adaptively.",
+        "options": [
+          "Deficient",
+          "Developing",
+          "Average",
+          "Skilled"
+        ]
+      },
+      {
+        "dimension_name": "Cognitive Flexibility",
+        "description": "Degree of adaptability in thinking and willingness to challenge core beliefs.",
+        "options": [
+          "Rigid",
+          "Somewhat Flexible",
+          "Flexible"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Core Beliefs and Appraisals",
+        "description": "Stable, recurring beliefs about self, others, or the world that shape emotional reactions and behaviors.",
+        "value": "Patient may hold beliefs such as ‘I am unlovable,’ ‘I can’t cope,’ ‘Emotions are dangerous,’ ‘The world is threatening,’ or ‘I am fundamentally broken.’"
+      },
+      {
+        "dimension_name": "Patterns of Avoidance and Safety Behaviors",
+        "description": "Preferred ways of evading distressing emotions, situations, or thoughts.",
+        "value": "Patient relies on behaviors such as social withdrawal, substance use, reassurance-seeking, safety signals (e.g., carrying medication), avoidance of exposure tasks, and distraction."
+      },
+      {
+        "dimension_name": "Attitude Toward Therapy and Therapeutic Change",
+        "description": "Typical response to therapist interventions, degree of skepticism, buy-in, or resistance.",
+        "value": "Patient may demonstrate ambivalence, initial reluctance, preference for familiar routines, skepticism about efficacy, or motivation sparked by personal values or early therapeutic success."
+      },
+      {
+        "dimension_name": "Emotional Awareness and Expression",
+        "description": "Capacity to recognize, label, and express emotions.",
+        "value": "Patient may experience alexithymia, limited interoceptive awareness, difficulty distinguishing thoughts from feelings, or chronic emotional confusion; expression may be muted, judgmental, or avoidance-prone."
+      },
+      {
+        "dimension_name": "Cultural and Social Influences",
+        "description": "Contextual factors such as family roles, cultural norms regarding emotion, coping, and help-seeking behavior.",
+        "value": "Patient’s culture may emphasize social harmony, emotional suppression, deference to authority, or assertiveness; family may be critical, supportive, or influential in therapy engagement and expectations."
+      },
+      {
+        "dimension_name": "Trait-Like Response to Emotional/Traumatic Stimuli",
+        "description": "Patient’s habitual reaction to intense emotion, trauma, or stress.",
+        "value": "Patient responds with avoidance, dissociation, emotional numbing, hypervigilance, catastrophic appraisal, or compulsive behavior; may also show emotional lability, impulsivity, or self-injurious actions."
+      },
+      {
+        "dimension_name": "Typical Engagement in CBT Tasks",
+        "description": "Consistent patterns in performing homework, exposure, skill practice, and session participation.",
+        "value": "Patient may be initially avoidant, resistant, prone to procrastination, or highly conscientious; engagement improves with validation, collaboration, and structured goal-setting. Skill acquisition may fluctuate with affective distress levels or practical/life barriers."
+      },
+      {
+        "dimension_name": "Functional Impact and Goals",
+        "description": "Stable areas affected by emotional/cognitive difficulties and goals for therapy.",
+        "value": "Patient reports impairment in social, academic, occupational, or relational domains; therapy goals are often concrete, linked to culturally meaningful activities or desired recovery of functioning and connection."
+      }
+    ]
+  }
 }

@@ -713,5 +713,173 @@
       "risk": "Increases risk of post-therapy relapse and reduces durable gains.",
       "confidence_score": 1.0
     }
-  ]
+  ],
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Primary Presenting Emotional Disorder",
+        "description": "The principal category of emotional disorder most characteristic of the patient's clinical presentation, as determined by symptoms, history, and clinical assessment.",
+        "options": [
+          "Anxiety Disorders",
+          "Mood Disorders",
+          "Obsessive-Compulsive and Related Disorders",
+          "Bipolar Disorders",
+          "Posttraumatic Stress Disorder",
+          "Eating Disorders",
+          "Insomnia Disorder",
+          "Alcohol/Substance Use Disorders",
+          "Borderline Personality Disorder",
+          "Chronic Pain Disorder",
+          "None/Other"
+        ]
+      },
+      {
+        "dimension_name": "Core Temperamental Style",
+        "description": "The patient's baseline temperament as it relates to predisposition toward emotional disorder vulnerabilities.",
+        "options": [
+          "High Neuroticism/Negative Affect",
+          "Low Extraversion/Positive Affect",
+          "Average/No Significant Temperamental Risk"
+        ]
+      },
+      {
+        "dimension_name": "Comorbidity Pattern",
+        "description": "The general nature of comorbidity present, informing complexity and treatment planning.",
+        "options": [
+          "Single Disorder",
+          "Two Emotional Disorders",
+          "Multiple (3+) Emotional Disorders",
+          "Emotional + Non-Emotional Disorders",
+          "None/Not Assessed"
+        ]
+      },
+      {
+        "dimension_name": "Emotion Avoidance Style",
+        "description": "Primary style patient uses to avoid or control emotions.",
+        "options": [
+          "Overt Behavioral Avoidance",
+          "Subtle Behavioral Avoidance",
+          "Cognitive Avoidance",
+          "Safety Signals",
+          "Mixed/Other",
+          "Not Evident"
+        ]
+      },
+      {
+        "dimension_name": "Insomnia Present",
+        "description": "Whether significant insomnia symptoms are present and clinically relevant.",
+        "options": [
+          "Yes",
+          "No",
+          "Unknown"
+        ]
+      },
+      {
+        "dimension_name": "Suicidal/Self-Injurious Thoughts/Behaviors Present",
+        "description": "The presence of notable self-injurious or suicidal thoughts or behaviors.",
+        "options": [
+          "Yes",
+          "No",
+          "Unknown"
+        ]
+      },
+      {
+        "dimension_name": "Cultural Background Relevant to Treatment",
+        "description": "Is the patient's cultural identity/lived experience salient for treatment adaptation?",
+        "options": [
+          "Yes",
+          "No",
+          "Unknown"
+        ]
+      },
+      {
+        "dimension_name": "Treatment History",
+        "description": "Extent of prior engagement with evidence-based and/or psychological treatment.",
+        "options": [
+          "No Prior Treatment",
+          "Single Prior Episode",
+          "Multiple Episodes/Chronic",
+          "Unknown"
+        ]
+      },
+      {
+        "dimension_name": "Group vs. Individual Treatment Preference",
+        "description": "Patient's stated or inferred preference for group versus individual treatment formats.",
+        "options": [
+          "Individual",
+          "Group",
+          "Flexible/No Preference",
+          "Unknown"
+        ]
+      },
+      {
+        "dimension_name": "Primary Motivation for Change",
+        "description": "Dominant reason or context for seeking treatment.",
+        "options": [
+          "Self-Initiated",
+          "Family/External Pressure",
+          "Occupational/Functional",
+          "Crisis-Evoked",
+          "Unknown"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Symptom Triggers and Antecedents",
+        "description": "Idiosyncratic situations, thoughts, or experiences most often precipitating strong negative emotions for the patient.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Aversive Reactions to Emotional Experiences",
+        "description": "How the patient perceives, judges, and internally responds to their emotions, including beliefs about control, acceptability, or meanings of negative affect.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Avoidance and Emotion-Driven Behaviors Description",
+        "description": "Examples and subjective description of the specific avoidance strategies (overt, subtle, cognitive, safety signals) and emotion-driven behaviors used in response to distress.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Core Cognitive/Appraisal Patterns",
+        "description": "Salient automatic thoughts, beliefs or ‘thinking traps’ the patient frequently evidences regarding self, world, or emotions; frequency and flexibility of these.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Level of Emotion Awareness and Mindfulness",
+        "description": "Degree to which patient recognizes, labels, and tracks emotions as they arise; ability/willingness to maintain present-focused, nonjudgmental awareness.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Cultural Identity/Contextual Factors",
+        "description": "Narrative elaboration of cultural, ethnic, spiritual, or contextual background influencing emotion, avoidance, coping, or therapeutic engagement.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Strengths, Motivation, and Support Structures",
+        "description": "Specific motivational elements, personal strengths, support systems, and degree of buy-in or readiness for change.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Obstacles and Barriers",
+        "description": "Barriers to treatment engagement, skill acquisition, or change (e.g., ambivalence, life stressors, cognitive/organizational deficits, cultural mismatch, comorbidities).",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Treatment Goals",
+        "description": "Collaboratively established goals/desired outcomes in the patient’s own language.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Treatment Response/Progress",
+        "description": "Narrative or measured description of the patient’s progress, skill acquisition, change in symptoms, or obstacles during intervention.",
+        "value": "Open-ended natural language text"
+      },
+      {
+        "dimension_name": "Salient Case Formulation",
+        "description": "The integrative, functional summary of how patient’s temperament, aversive reactions, avoidance, cognition, context, and strengths maintain their emotional disorder(s) and suggest viable targets for treatment.",
+        "value": "Open-ended natural language text"
+      }
+    ]
+  }
 }

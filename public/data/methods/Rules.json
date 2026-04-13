@@ -1719,139 +1719,117 @@
       "confidence_score": 0.96
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Engagement and Motivation",
-      "Description": "Patient's readiness, motivation, and consistency in participating in CBT and related interventions.",
-      "categorical values": [
-        "high",
-        "moderate",
-        "low",
-        "variable",
-        "resistant"
-      ],
-      "Numerical values": "(0 = completely disengaged; 1 = fully engaged and motivated in therapy sessions, goal-setting, and homework)"
-    },
-    {
-      "Dimension Name": "Insight and Self-Reflection",
-      "Description": "Ability to recognize symptoms, understand their impact, and participate in self-reflective dialogue.",
-      "categorical values": [
-        "good",
-        "fair",
-        "poor",
-        "absent",
-        "variable"
-      ],
-      "Numerical values": "(0 = lacks insight/denies symptoms/refuses reflection; 1 = consistently demonstrates accurate self-understanding and reflection)"
-    },
-    {
-      "Dimension Name": "Emotional Regulation",
-      "Description": "Typical ability to manage and tolerate negative emotions, distress, and impulses.",
-      "categorical values": [
-        "well regulated",
-        "some difficulty",
-        "poorly regulated",
-        "highly reactive",
-        "variable"
-      ],
-      "Numerical values": "(0 = frequent emotional dysregulation/impulsivity; 1 = effective, adaptive emotional regulation in and outside sessions)"
-    },
-    {
-      "Dimension Name": "Cognitive Functioning",
-      "Description": "Stability of cognitive processes such as attention, memory, executive function, and reality testing.",
-      "categorical values": [
-        "intact",
-        "mild impairment",
-        "moderate impairment",
-        "severe impairment",
-        "fluctuating"
-      ],
-      "Numerical values": "(0 = severely impaired cognition/attention/disorientation; 1 = fully intact cognition across settings and times)"
-    },
-    {
-      "Dimension Name": "Interpersonal Style",
-      "Description": "Patient’s typical approach to relationships, communication, and collaboration with the therapist (e.g., openness, trust, social withdrawal).",
-      "categorical values": [
-        "open/collaborative",
-        "guarded",
-        "withdrawn",
-        "hostile",
-        "avoidant",
-        "dependent"
-      ],
-      "Numerical values": "(0 = highly conflictual/withdrawn/no trust; 1 = warm, open, collaborative, and trusting)"
-    },
-    {
-      "Dimension Name": "Cultural/Ethnic Identity and Openness",
-      "Description": "Stability, salience, and openness of patient's cultural, ethnic, and identity attributes as they impact therapy.",
-      "categorical values": [
-        "strongly identified/openness",
-        "ambivalent",
-        "minimized",
-        "stigmatized",
-        "actively avoidant"
-      ],
-      "Numerical values": "(0 = completely avoidant/stigmatized; 1 = fully open and integrated into therapy, views identity as strength)"
-    },
-    {
-      "Dimension Name": "Coping Style",
-      "Description": "Habitual strategies for managing stressors, symptoms, and adversity (e.g., adaptive, avoidant, reliant on substances).",
-      "categorical values": [
-        "adaptive",
-        "avoidant",
-        "emotion-focused",
-        "problem-focused",
-        "maladaptive"
-      ],
-      "Numerical values": "(0 = consistently maladaptive/catastrophizing/avoidant/substance reliant; 1 = consistently adaptive, flexible, and constructive)"
-    },
-    {
-      "Dimension Name": "Comorbidity Awareness",
-      "Description": "Patient’s awareness and engagement regarding co-occurring psychiatric or medical issues affecting their presenting problem.",
-      "categorical values": [
-        "aware and open",
-        "minimizing",
-        "denying",
-        "variable",
-        "unaware"
-      ],
-      "Numerical values": "(0 = denies/ignores comorbidities; 1 = fully aware and willing to address co-occurring disorders in therapy)"
-    },
-    {
-      "Dimension Name": "Family/Social Support",
-      "Description": "Existence, stability, and quality of support system; use or avoidance of family/community resources.",
-      "categorical values": [
-        "strong support",
-        "adequate",
-        "minimal",
-        "absent",
-        "antagonistic"
-      ],
-      "Numerical values": "(0 = completely isolated/antagonistic family or environment; 1 = strong, consistent, and constructive support network)"
-    },
-    {
-      "Dimension Name": "Stigma and Help-Seeking Attitude",
-      "Description": "Patient's typical attitudes toward psychiatric illness, treatment, and associated stigma; willingness to seek help.",
-      "categorical values": [
-        "low stigma",
-        "high stigma",
-        "ambivalent",
-        "secretive",
-        "actively help-seeking"
-      ],
-      "Numerical values": "(0 = high stigma/strong reluctance and avoidance of care; 1 = no stigma, fully open to help-seeking and therapeutic alliance)"
-    },
-    {
-      "Dimension Name": "Functional Impairment",
-      "Description": "Level of distress and impairment across occupational, academic, and social domains due to psychiatric symptoms.",
-      "categorical values": [
-        "none",
-        "mild",
-        "moderate",
-        "severe",
-        "fluctuating"
-      ],
-      "Numerical values": "(0 = complete dysfunction across domains; 1 = fully functional, no impairment noted)"
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "presenting_problem_type",
+        "description": "The primary cluster or type(s) of emotional or psychological disorder(s) presented by the patient.",
+        "options": [
+          "anxiety_disorder",
+          "depressive_disorder",
+          "bipolar_disorder",
+          "obsessive_compulsive_disorder",
+          "posttraumatic_stress_disorder",
+          "eating_disorder",
+          "alcohol_use_disorder",
+          "insomnia_disorder",
+          "chronic_pain",
+          "borderline_personality_disorder",
+          "multiple_comorbid_emotional_disorders",
+          "other"
+        ]
+      },
+      {
+        "dimension_name": "cultural_background",
+        "description": "The background of the patient concerning ethnicity, culture, and major group memberships relevant to values, beliefs, and worldviews.",
+        "options": [
+          "mainstream_dominant_culture",
+          "minority_ethnic_or_racial_identity",
+          "recent_immigrant_or_refugee",
+          "cross_cultural_or_multicultural_identity",
+          "other"
+        ]
+      },
+      {
+        "dimension_name": "motivation_level",
+        "description": "The patient's current motivation and readiness to engage in therapy and change.",
+        "options": [
+          "highly_motivated",
+          "ambivalent_or_fluctuating_motivation",
+          "low_motivation"
+        ]
+      },
+      {
+        "dimension_name": "avoidance_pattern",
+        "description": "The predominant form(s) of avoidance or coping demonstrated by the patient.",
+        "options": [
+          "behavioral_avoidance",
+          "cognitive_avoidance",
+          "emotional_suppression",
+          "emotion_driven_behaviors",
+          "none_or_minimal_avoidance"
+        ]
+      },
+      {
+        "dimension_name": "mindfulness_skill_level",
+        "description": "The degree to which the patient demonstrates present-focused, nonjudgmental emotional awareness.",
+        "options": [
+          "limited_mindfulness",
+          "developing_mindfulness",
+          "high_or_adaptive_mindfulness"
+        ]
+      },
+      {
+        "dimension_name": "session_format_preference",
+        "description": "The patient's preferences and appropriateness for treatment delivery format.",
+        "options": [
+          "individual",
+          "group",
+          "technology_based_self_guided",
+          "other"
+        ]
+      },
+      {
+        "dimension_name": "engagement_level",
+        "description": "The patient’s pattern of attendance, participation, and engagement in therapy.",
+        "options": [
+          "consistent_and_active_engagement",
+          "inconsistent_or_passive_engagement",
+          "poor_or_minimal_engagement"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "core_beliefs_and_thinking_patterns",
+        "description": "Key core beliefs, automatic thoughts, cognitive distortions, appraisals, or worldviews that strongly influence emotional and behavioral functioning.",
+        "value": "Open-ended natural language description of the patient’s recurrent beliefs and cognitive patterns (e.g., 'Emotion is dangerous', 'I am unlovable', perfectionistic standards, catastrophizing, excessive responsibility, etc.)"
+      },
+      {
+        "dimension_name": "emotion_regulation_profile",
+        "description": "The patient’s typical responses to emotions, including tolerance, reactivity, suppression, or avoidance tendencies.",
+        "value": "Describe how the patient experiences and manages emotions, such as avoidance, intolerance, rumination, acceptance, or skillful regulation."
+      },
+      {
+        "dimension_name": "adaptive_strengths_and_vulnerabilities",
+        "description": "Key personal strengths, existing coping skills, and significant vulnerabilities relevant to CBT process.",
+        "value": "Summarize strengths (e.g., insight, willingness, support system) and vulnerabilities (e.g., hopelessness, rigidity) that will inform personalization of interventions."
+      },
+      {
+        "dimension_name": "treatment_goals_and_valued_directions",
+        "description": "The patient’s articulated short- and long-term goals for therapy, and life values driving change.",
+        "value": "Open-ended list or narrative articulating concrete targets (e.g., reduce panic attacks, improve social connection, increase daily activity, etc.) and underlying valued life domains."
+      },
+      {
+        "dimension_name": "barriers_to_treatment",
+        "description": "Known or anticipated obstacles to successful engagement or outcome in therapy.",
+        "value": "Describe practical, emotional, cognitive, or motivational barriers such as scheduling difficulties, lack of support, ambivalence, fear of change, or symptom-related inertia."
+      },
+      {
+        "dimension_name": "sociocultural_considerations",
+        "description": "Contextual, cultural, religious, family, or societal variables shaping the patient’s experience, meaning-making, or treatment needs.",
+        "value": "Summarize relevant cultural values, identity considerations, acculturation status, language barriers, or group-specific experiences affecting treatment."
+      }
+    ]
+  }
 }

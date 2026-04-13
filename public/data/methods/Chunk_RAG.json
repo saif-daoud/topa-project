@@ -983,129 +983,115 @@
       "confidence_score": 0.85
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Interpersonal Functioning",
-      "Description": "This reflects the individual's typical patterns in relationships, such as trust, intimacy, need for support, and approach to social interactions. It encompasses dependency, avoidance, detachment, and the ability to form and maintain relationships in and out of therapy.",
-      "categorical values": [
-        "Dependent",
-        "Detached/Avoidant",
-        "Controlling",
-        "Antagonistic",
-        "Overly Intimate",
-        "Superficially Social",
-        "Isolated",
-        "Support-seeking",
-        "Balanced"
-      ],
-      "Numerical values": "(0 = extremely dysfunctional or severely limited relationships, 1 = optimal, balanced, and adaptive relationships; higher values reflect greater social competence and adaptability)"
-    },
-    {
-      "Dimension Name": "Affective Stability",
-      "Description": "Represents the stability, intensity, and regulation of mood and emotional states. This includes tendencies toward emotional lability, reactivity, irritability, and predominant affective tone (e.g., sad, anxious, angry, cheerful).",
-      "categorical values": [
-        "Labile",
-        "Irritable",
-        "Depressed",
-        "Anxious",
-        "Euphoric",
-        "Restricted/Constricted",
-        "Reactive",
-        "Stable"
-      ],
-      "Numerical values": "(0 = highly unstable, frequent intense mood swings, 1 = stable and well-regulated affect; higher values reflect greater emotional regulation and stability)"
-    },
-    {
-      "Dimension Name": "Cognitive Style",
-      "Description": "Encompasses the patient's typical patterns of thinking—including rigid perfectionism, suspiciousness, self-criticism, catastrophizing, compulsivity, grandiosity, or distractibility—and their approach to problems and therapy.",
-      "categorical values": [
-        "Perfectionistic",
-        "Suspicious/Paranoid",
-        "Catastrophic",
-        "Grandiose",
-        "Detail-focused",
-        "Distractible",
-        "Obsessive/Compulsive",
-        "Flexible/Adaptive",
-        "Self-critical"
-      ],
-      "Numerical values": "(0 = highly maladaptive or distorted thinking, 1 = flexible, realistic, adaptive thinking style; higher values indicate more adaptive cognitive processing)"
-    },
-    {
-      "Dimension Name": "Engagement in Therapy",
-      "Description": "Describes the patient’s typical level of participation, collaboration, openness, and adherence to tasks within therapy, such as willingness to discuss issues, complete homework, or tolerate therapist interventions.",
-      "categorical values": [
-        "Resistant",
-        "Dismissive",
-        "Overly Compliant",
-        "Avoidant",
-        "Engaged",
-        "Suspicious",
-        "Superficial Engagement",
-        "Variable"
-      ],
-      "Numerical values": "(0 = highly disengaged or openly resistant, 1 = highly engaged, collaborative, and invested in change; higher scores reflect better therapeutic engagement)"
-    },
-    {
-      "Dimension Name": "Self-Concept and Identity Integration",
-      "Description": "Reflects the coherence, stability, and positivity of the patient’s self-image, including presence of shame, grandiosity, identity diffusion, entitlement, or a sense of inadequacy.",
-      "categorical values": [
-        "Diffuse/Unstable",
-        "Negative",
-        "Grandiose",
-        "Shame-based",
-        "Inadequate",
-        "Entitled",
-        "Stable/Coherent",
-        "Evolving"
-      ],
-      "Numerical values": "(0 = highly fragmented or negative self-concept, 1 = stable, coherent, and positive sense of self; higher values indicate a healthier self-concept)"
-    },
-    {
-      "Dimension Name": "Coping and Defense Mechanisms",
-      "Description": "The predominant strategies used to cope with stress and emotional pain; includes the use of primitive defenses (e.g., projection, splitting), mature defenses (e.g., humor, suppression), or maladaptive behaviors (e.g., substance use, avoidance).",
-      "categorical values": [
-        "Splitting",
-        "Projection",
-        "Minimization",
-        "Denial",
-        "Rationalization",
-        "Avoidance",
-        "Adaptive",
-        "Maladaptive",
-        "Mature"
-      ],
-      "Numerical values": "(0 = primitive, rigid, or maladaptive coping; 1 = flexible, mature, and adaptive coping; higher values reflect more mature and effective coping skills)"
-    },
-    {
-      "Dimension Name": "Insight and Motivation for Change",
-      "Description": "Assesses the recognition of one’s own problems, willingness to reflect on patterns, and motivation to participate actively in treatment/change.",
-      "categorical values": [
-        "None",
-        "Minimal",
-        "Partial",
-        "Fluctuating",
-        "Good",
-        "Excellent",
-        "Denial",
-        "Intellectualized"
-      ],
-      "Numerical values": "(0 = no insight or motivation, 1 = full insight with strong, consistent motivation for change; higher values are associated with better outcomes in CBT)"
-    },
-    {
-      "Dimension Name": "Comorbid Maladaptive Traits",
-      "Description": "Longstanding patterns such as substance use, perfectionism, impulsivity, or attention-seeking that persist across time, influence functioning, or therapy.",
-      "categorical values": [
-        "Impulsive",
-        "Substance-using",
-        "Perfectionistic",
-        "Attention-seeking",
-        "Rigid",
-        "Manipulative",
-        "None/Minimal",
-        "Variable"
-      ],
-      "Numerical values": "(0 = severe, pervasive maladaptive traits, 1 = absence of persistent maladaptive traits; higher values reflect fewer trait-based impediments to functioning and therapy)"
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+        {
+        "dimension_name": "Emotional Reactivity",
+        "description": "The typical intensity and frequency with which the user experiences emotions. High emotional reactivity is often linked with frequent, intense, or persistent unwanted emotions.",
+        "options": [
+            "Low",
+            "Moderate",
+            "High"
+        ]
+        },
+        {
+        "dimension_name": "Emotion Aversion",
+        "description": "The user’s tendency to judge emotions (especially negative ones) as unacceptable, dangerous, or intolerable.",
+        "options": [
+            "Low",
+            "Moderate",
+            "High"
+        ]
+        },
+        {
+        "dimension_name": "Coping Response to Emotions",
+        "description": "The user's default approach to managing uncomfortable emotions: confronting (approach), avoidance (escape/distraction), or acceptance.",
+        "options": [
+            "Approach",
+            "Avoidance",
+            "Acceptance"
+        ]
+        },
+        {
+        "dimension_name": "Cognitive Rigidity",
+        "description": "The user's habitual cognitive style—whether they are flexible or inflexible in their thinking, and their susceptibility to negative automatic appraisals.",
+        "options": [
+            "Flexible",
+            "Moderately Flexible",
+            "Rigid"
+        ]
+        },
+        {
+        "dimension_name": "Mindfulness Skill Use",
+        "description": "The user's tendency to utilize present-focused, nonjudgmental awareness of emotions.",
+        "options": [
+            "Low",
+            "Moderate",
+            "High"
+        ]
+        },
+        {
+        "dimension_name": "Avoidant Coping Style",
+        "description": "The predominant forms of emotion avoidance the user tends to rely on.",
+        "options": [
+            "Overt Situational Avoidance",
+            "Subtle Behavioral Avoidance",
+            "Cognitive Avoidance",
+            "Safety Signals",
+            "None/minimal Avoidance"
+        ]
+        },
+        {
+        "dimension_name": "Motivation for Change",
+        "description": "The user's baseline level of motivation to engage in the process of cognitive-behavioral change.",
+        "options": [
+            "Low",
+            "Moderate",
+            "High"
+        ]
+        },
+        {
+        "dimension_name": "Cultural Context",
+        "description": "The primary cultural identification(s) or orientation impacting the user's perspectives, values, and therapeutic engagement.",
+        "options": [
+            "Individualistic",
+            "Collectivist",
+            "Bicultural/Acculturated",
+            "Other/Not assessed"
+        ]
+        }
+    ],
+    "free_form_dimensions": [
+        {
+        "dimension_name": "Typical Reaction to Strong Emotion",
+        "description": "A summary of how the user usually responds when feeling strong or unwanted emotion (e.g., worry, panic, sadness, anger).",
+        "value": "Tends to view strong emotions as overwhelming and often responds with self-judgment, believing emotions are 'irrational' or proof of personal weakness. May experience fear that emotions are out of control and be concerned about escalation or disruption of daily functioning."
+        },
+        {
+        "dimension_name": "Patterns of Avoidance",
+        "description": "Specific, real-life examples of how the user habitually avoids, escapes, or controls emotional experiences.",
+        "value": "Avoids anxiety-provoking or uncomfortable situations, such as social events, meetings, or travel. May use distraction, procrastination, reassurance-seeking from others, or turn to substances (e.g., alcohol, overeating) or behavioral rituals to minimize or suppress emotions. In some cases, may use safety behaviors like only going out with trusted people or carrying objects for perceived comfort."
+        },
+        {
+        "dimension_name": "Self-appraisal of Emotional Functioning",
+        "description": "The user's narratives, beliefs, or self-characterization related to emotions and their manageability.",
+        "value": "Describes self as a 'worrier' or 'mentally weak'; feels emotions more intensely than others and may be frustrated by difficulty 'calming down'. Often expresses hopelessness about the possibility of change, though may have a desire to understand emotions better and reduce self-judgment."
+        },
+        {
+        "dimension_name": "Relevant Sociocultural Factors",
+        "description": "Cultural, familial, or environmental influences impacting the user’s emotional experience, distress tolerance, or therapy engagement.",
+        "value": "Cultural context shapes the meaning of distress, emotional expression, and expectations regarding therapy. Examples include high standards for social behavior due to cultural/family norms, stigma around mental health, and varying degrees of comfort with assertiveness, independence, or group participation."
+        },
+        {
+        "dimension_name": "Treatment Engagement Style",
+        "description": "Description of the user's participation patterns, barriers to engagement, and learning preferences.",
+        "value": "May initially present with ambivalence or skepticism toward treatment, needing concrete rationale and validation of experiences. Tends to benefit from a collaborative, respectful approach. Practical exercises (e.g., mood monitoring, behavioral experiments) may increase buy-in. Barriers may include avoidance of distressing topics, perfectionism in completing homework, or hesitancy to share in group settings."
+        },
+        {
+        "dimension_name": "Goals and Change Readiness",
+        "description": "The user’s personally meaningful treatment goals and readiness to initiate behavioral, emotional, or cognitive changes.",
+        "value": "Typical goals include increasing social or occupational engagement, reducing avoidance, feeling more comfortable with emotions, or improving relationships. Initial readiness to change can vary and may fluctuate; explicit discussion of motivation, ambivalence, and the pros/cons of change is often helpful."
+        }
+    ]
+  }
 }

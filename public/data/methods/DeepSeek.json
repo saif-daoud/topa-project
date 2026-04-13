@@ -611,73 +611,75 @@
       "confidence_score": 0.84
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Cognitive Engagement Style",
-      "Description": "The patient's characteristic way of processing and engaging with the cognitive aspects of CBT, such as identifying and evaluating thoughts.",
-      "categorical values": [
-        "Concrete/Externalizer",
-        "Abstract/Internalizer",
-        "Analytical/Systematic",
-        "Intuitive/Associative"
-      ],
-      "Numerical values": "(0-1 scale): 0 = Very low/rigid cognitive engagement, 1 = Very high/flexible cognitive engagement in cognitive restructuring tasks."
-    },
-    {
-      "Dimension Name": "Behavioral Activation Tendency",
-      "Description": "The patient's baseline propensity for initiating goal-directed activities and overcoming avoidance, central to behavioral interventions in CBT.",
-      "categorical values": [
-        "High Initiator/Avoider",
-        "Passive/Avoider",
-        "Situation-Dependent",
-        "Activity-Seeking"
-      ],
-      "Numerical values": "(0-1 scale): 0 = Complete behavioral avoidance/inaction, 1 = High self-directed behavioral activation."
-    },
-    {
-      "Dimension Name": "Emotional Awareness & Regulation",
-      "Description": "The patient's typical ability to identify, differentiate, and modulate emotional states, which affects the process of connecting thoughts to feelings.",
-      "categorical values": [
-        "Alexithymic",
-        "Aware but Overwhelmed",
-        "Modulated",
-        "High Insight"
-      ],
-      "Numerical values": "(0-1 scale): 0 = No awareness or control over emotional reactions, 1 = High awareness and skilled modulation of emotions."
-    },
-    {
-      "Dimension Name": "Therapeutic Alliance Propensity",
-      "Description": "The patient's stable disposition towards forming a collaborative working relationship with a therapist, impacting openness and homework compliance.",
-      "categorical values": [
-        "Skeptical/Guarded",
-        "Compliant but Passive",
-        "Selectively Collaborative",
-        "Highly Collaborative"
-      ],
-      "Numerical values": "(0-1 scale): 0 = Actively resistant or distrustful, 1 = Highly trusting and collaboratively engaged."
-    },
-    {
-      "Dimension Name": "Maladaptive Schema Dominance",
-      "Description": "The degree to which the patient's responses are shaped by deep-seated, enduring negative cognitive patterns about self, others, and the world.",
-      "categorical values": [
-        "Mistrust/Abuse",
-        "Defectiveness/Shame",
-        "Failure",
-        "Dependence/Incompetence",
-        "Low Schema Activation"
-      ],
-      "Numerical values": "(0-1 scale): 0 = Maladaptive schemas completely dominate perception and response, 1 = Schemas are inactive or flexibly managed."
-    },
-    {
-      "Dimension Name": "Problem-Solving Orientation",
-      "Description": "The patient's characteristic approach to solving life problems, ranging from helplessness to structured, solution-focused effort.",
-      "categorical values": [
-        "Helpless",
-        "Avoidant",
-        "Emotion-Focused",
-        "Solution-Focused"
-      ],
-      "Numerical values": "(0-1 scale): 0 = No perceived ability to solve problems, 1 = High self-efficacy and use of effective problem-solving steps."
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "chronicity_of_negative_thoughts",
+        "description": "The typical duration and persistence of negative automatic thoughts once they arise.",
+        "options": ["fleeting", "hours", "days", "weeks_or_more"]
+      },
+      {
+        "dimension_name": "insight_level",
+        "description": "The patient's capacity to recognize connections between thoughts, feelings, and behaviors.",
+        "options": ["low", "moderate", "high"]
+      },
+      {
+        "dimension_name": "therapeutic_alliance_stance",
+        "description": "The patient's default relational posture toward the therapist and the CBT framework.",
+        "options": ["collaborative", "skeptical", "dependent", "defensive", "overly_agreeable"]
+      },
+      {
+        "dimension_name": "homework_adherence_pattern",
+        "description": "The patient's typical follow-through on between-session tasks and exercises.",
+        "options": ["consistent", "inconsistent", "avoidant", "perfectionistic", "overachieving"]
+      },
+      {
+        "dimension_name": "emotional_awareness_granularity",
+        "description": "The level of detail and differentiation the patient uses when identifying and labeling emotions.",
+        "options": ["low_undifferentiated", "moderate_broad_categories", "high_granular"]
+      },
+      {
+        "dimension_name": "primary_cognitive_distortion_cluster",
+        "description": "The predominant category of unhelpful thinking styles the patient most frequently employs.",
+        "options": ["catastrophizing_fortune_telling", "all_or_nothing_thinking", "mind_reading_personalization", "should_statements_self_criticism", "emotional_reasoning", "mental_filter_discounting_positive"]
+      },
+      {
+        "dimension_name": "behavioral_activation_baseline",
+        "description": "The patient's typical energy level and readiness to engage in pleasurable or mastery activities when not acutely distressed.",
+        "options": ["low_initiation", "moderate_but_anhedonic", "high_but_misdirected", "balanced"]
+      },
+      {
+        "dimension_name": "somatic_anchoring_tendency",
+        "description": "The degree to which the patient experiences and reports psychological distress through physical sensations.",
+        "options": ["minimal", "moderate", "high_somatic_prominence"]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "core_belief_schema_summary",
+        "description": "A concise natural language description of the patient's core beliefs about self, world, and future (the Cognitive Triad).",
+        "value": "Believes she is fundamentally incompetent and unlovable; perceives others as critical and likely to abandon her; anticipates that any effort will result in humiliation or failure."
+      },
+      {
+        "dimension_name": "cognitive_avoidance_and_safety_behaviors",
+        "description": "Specific strategies the patient habitually uses to prevent, suppress, or escape distressing internal experiences or feared outcomes.",
+        "value": "Engages in frequent reassurance-seeking from partner, mentally reviews past conversations for 'mistakes' hours later, and cancels social plans at the last minute if feeling slightly tired or anxious."
+      },
+      {
+        "dimension_name": "personal_history_context_note",
+        "description": "Brief, salient background context that stabilizes current patterns (e.g., family environment, key developmental experiences).",
+        "value": "Grew up with a highly critical parent who valued achievement over emotional expression; learned early that making mistakes led to withdrawal of affection."
+      },
+      {
+        "dimension_name": "motivational_values_conflict",
+        "description": "Description of the tension between the patient's stated goals/values and the feared consequences of change.",
+        "value": "Deeply values close relationships and professional autonomy but believes that 'letting go' of vigilance will inevitably lead to social rejection and catastrophic underperformance at work."
+      },
+      {
+        "dimension_name": "language_and_metaphor_preference",
+        "description": "The type of imagery, metaphor, or vocabulary that resonates with or triggers the patient during sessions.",
+        "value": "Responds poorly to sports or military metaphors ('battle depression', 'fight thoughts') but connects deeply with metaphors related to weather patterns ('passing storm') and caring for a wounded animal ('the inner critic is a scared dog')."
+      }
+    ]
+  }
 }

@@ -1369,5 +1369,126 @@
       "risk": "May worsen symptoms, exacerbate risk, or delay appropriate intervention.",
       "confidence_score": 0.97
     }
-  ]
+  ],
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Trait Emotionality",
+        "description": "Patient's baseline tendency toward experiencing negative emotions (e.g., high neuroticism/negative affect, low extraversion/positive affectivity).",
+        "options": [
+          "High negative affect/neuroticism",
+          "Low negative affect/neuroticism",
+          "High positive affect/extraversion",
+          "Low positive affect/extraversion"
+        ]
+      },
+      {
+        "dimension_name": "Core Cognitive Style",
+        "description": "Patient's dominant pattern of information processing and belief formation.",
+        "options": [
+          "Catastrophizing & Cognitive Rigidity",
+          "Negative Triad (depression)",
+          "Threat Biased (anxiety)",
+          "Perfectionism",
+          "Balanced/Flexible"
+        ]
+      },
+      {
+        "dimension_name": "Primary Coping Strategy",
+        "description": "The coping style most habitually used to manage distress.",
+        "options": [
+          "Avoidant",
+          "Emotion-driven (impulsive/ruminative)",
+          "Problem-focused",
+          "Social Support Seeking"
+        ]
+      },
+      {
+        "dimension_name": "Insight Level",
+        "description": "Patient's awareness and recognition of the irrational or maladaptive nature of their thoughts and behaviors.",
+        "options": [
+          "Good",
+          "Fair",
+          "Poor",
+          "Absent"
+        ]
+      },
+      {
+        "dimension_name": "Therapy Engagement Style",
+        "description": "Patient's initial, characteristic style of engagement in CBT.",
+        "options": [
+          "Collaborative/Active",
+          "Passive/Resistant",
+          "Ambivalent",
+          "Skeptical/Critical"
+        ]
+      },
+      {
+        "dimension_name": "Comorbid Diagnoses",
+        "description": "Most common enduring comorbidities affecting course and engagement in CBT.",
+        "options": [
+          "Depression",
+          "Other Anxiety Disorder",
+          "OCD",
+          "Personality Disorder",
+          "Substance Use Disorder",
+          "None/Unspecified"
+        ]
+      },
+      {
+        "dimension_name": "Preferred Safety/Control Behavior",
+        "description": "Typical behavioral means for the patient to attain a sense of safety or manage anticipated distress.",
+        "options": [
+          "Avoidance",
+          "Rituals/Compulsions",
+          "Reassurance-seeking",
+          "Distraction",
+          "Substance use",
+          "Controlled exposure"
+        ]
+      },
+      {
+        "dimension_name": "Motivation For Change",
+        "description": "General orientation toward making changes within therapy.",
+        "options": [
+          "High/Motivated",
+          "Ambivalent",
+          "Low/Skeptical",
+          "Variable/Fluctuating"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Core Beliefs and Self-Schema",
+        "description": "Enduring, underlying beliefs about self, world, and future that guide meaning-making and reaction patterns.",
+        "value": "Examples include seeing oneself as unlovable, incompetent, fundamentally flawed, at risk, responsible for harm, vulnerable to threat, or as a failure. Core beliefs are often global, rigid, and self-referential, shaped by early experiences or enduring schemas (e.g., 'I am defective,' 'People are dangerous,' 'I am responsible for preventing harm')."
+      },
+      {
+        "dimension_name": "Typical Automatic Thoughts and Processing Biases",
+        "description": "Habitual cognition style, including examples of negative automatic thoughts, cognitive errors, and processing biases.",
+        "value": "Includes thoughts such as: overgeneralizing negative outcomes, catastrophizing (assuming the worst will happen), dichotomous (all-or-nothing) thinking, emotional reasoning ('If I feel anxious, something must be wrong'), personalizing setbacks, and persistent rumination or worry. Patients may use mind-reading, selective abstraction, or misinterpret bodily sensations as signs of catastrophe."
+      },
+      {
+        "dimension_name": "Emotion Regulation Capacity",
+        "description": "Patient's typical ability to tolerate, identify, and manage emotional experiences.",
+        "value": "May display emotional sensitivity/overreactivity, difficulty identifying or naming emotions (alexithymia), tendency to judge or avoid emotions, low distress tolerance, habitual use of suppression or distraction, and vulnerability to feeling overwhelmed. Emotional responses may include shame, guilt, hopelessness, anger, anxiety, numbness, and fear."
+      },
+      {
+        "dimension_name": "Session Engagement and Response Pattern",
+        "description": "How the patient usually participates in CBT sessions, including typical behaviors, attitudes, engagement challenges, and therapist relationship dynamics.",
+        "value": "Can include passivity, skepticism, initial resistance, or defensiveness; excessive reassurance-seeking; fear of criticism or rejection; dependence on therapist structure; difficulty with homework or exposure tasks; avoidant or ruminative responses to challenging assignments; engagement increasing with validation, structure, and skill-based practice; possible sensitivity to therapist stance and alliance."
+      },
+      {
+        "dimension_name": "Cultural, Developmental, and Interpersonal Context",
+        "description": "Background factors influencing symptom expression, help-seeking, coping, and engagement with therapy.",
+        "value": "May involve family and cultural beliefs about emotions or mental health (e.g., stigma, avoidance of negative emotion, beliefs about control or willpower), communication style, reactions to authority, societal expectations, history of trauma, family support or criticism, and relational patterns (e.g., dependency, avoidance, mistrust)."
+      },
+      {
+        "dimension_name": "Resilience and Coping Resource Profile",
+        "description": "Enduring strengths, capacities, or resources that influence course and engagement in therapy.",
+        "value": "Presence of insight, self-reflectiveness, support network, history of overcoming adverse events, openness to skill-building, or prior positive therapy experiences; may also include self-criticism, perfectionism, or tendency for passivity that can be strengths if redirected in therapy."
+      }
+    ]
+  }
 }

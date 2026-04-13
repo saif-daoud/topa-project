@@ -364,181 +364,165 @@
       "confidence_score": 1.0
     }
   ],
-  "user_profile": [
-    {
-      "Dimension Name": "Baseline Cognitive Function and Neurocognitive Vulnerability",
-      "Description": "Captures the patient's enduring cognitive capacities—including attention, memory, executive function, visuospatial skills, language, and social cognition—as well as stable risk factors for acute and chronic neurocognitive decline. Encompasses developmental history, educational attainment, lifelong cognitive strengths/weaknesses, family history of dementia, and predisposition to delirium, major/mild neurocognitive disorder, or traumatic/acquired deficits.",
-      "categorical values": [
-        "Intact",
-        "Mild Deficit",
-        "Major Deficit",
-        "Fluctuating",
-        "Progressive Decline",
-        "Static Deficit",
-        "Developmental Vulnerability",
-        "Family Dementia Risk",
-        "Post-TBI",
-        "Post-Stroke",
-        "Substance-Related Decline",
-        "Acquired Disorder"
-      ],
-      "Numerical values": "General level of cognitive impairment/risk (0 = intact, 1 = profound chronic impairment and high vulnerability for delirium or dementia)."
-    },
-    {
-      "Dimension Name": "Mood, Motivation, and Neurocognitive-Related Affect",
-      "Description": "Stable pattern of mood symptoms and motivational disorders shaped by neurocognitive status (apathy, depression, irritability), including baseline affect, susceptibility to depressive pseudodementia, anhedonia, blunted emotional expression, and emotional insight into cognitive difficulties. Includes neurocognitive disorder-related mood syndromes (apathy, emotional constriction), clinical depression, chronic mood vulnerability relevant to CBT engagement, and distress relating to paraphilic urges or dysfunctional sexual interests.",
-      "categorical values": [
-        "Normal Affect",
-        "Depressive Syndrome",
-        "Anxiety Spectrum",
-        "Apathetic",
-        "Anhedonic",
-        "Mood-Related Cognitive Deficit",
-        "Reactive Dysphoria",
-        "Blunted Affect",
-        "Insightful",
-        "Denial",
-        "Depressive Pseudodementia",
-        "Paraphilia-Related Distress"
-      ],
-      "Numerical values": "Degree to which mood/motivation deficits or distress related to sexual or other urges impact cognitive and functional status (0 = euthymic, 1 = severe interference and functional impairment)."
-    },
-    {
-      "Dimension Name": "Attention, Awareness, and Delirium Susceptibility",
-      "Description": "Reflects stable risk for acute fluctuations in awareness and attention (delirium) based on age, medical comorbidities, medication sensitivity, prior episodes, cognitive baseline, and susceptibility to postoperative, substance-related, or infection-triggered delirium. Includes patient history of hypoactive/hyperactive delirium (agitated vs. withdrawn), awareness of surroundings, and presence of contributing medical/physiological factors, plus consideration of substance use disorders and related attentional impairment.",
-      "categorical values": [
-        "Intact Attention",
-        "Attention Fluctuates",
-        "Hyperactive Delirium-Prone",
-        "Hypoactive Delirium-Prone",
-        "Medical Risk Factors",
-        "Substance Withdrawal Risk",
-        "Postoperative Risk",
-        "Infection-Prone",
-        "Medication Sensitive"
-      ],
-      "Numerical values": "Risk/severity of acute attention/awareness disturbance (0 = none, 1 = extreme vulnerability and history of severe delirium)."
-    },
-    {
-      "Dimension Name": "Executive Dysfunction and Real-Life Impairment",
-      "Description": "Stable tendency toward impaired planning, organization, decision-making, inhibition, and cognitive flexibility due to neurocognitive, vascular, mood, or substance use disorders. Includes lifelong, acquired, or paraphilia-related deficits in executive tasks (verbal fluency, clock drawing, response inhibition) impacting occupational, financial, legal, and social functioning. Substance abuse and impulsive sexual behaviors relevant to executive function.",
-      "categorical values": [
-        "Intact Executive Function",
-        "Mild Dysfunction",
-        "Major Dysfunction",
-        "Apathy",
-        "Psychomotor Slowing",
-        "Vascular Syndrome",
-        "Depression-Related",
-        "TBI-Related",
-        "Progressive Decline",
-        "Paraphilia-Related Impulsivity",
-        "Substance-Related Dysfunction"
-      ],
-      "Numerical values": "Degree of executive impairment affecting daily and social functioning (0 = intact, 1 = severe, multi-domain impairment including legal or interpersonal consequences)."
-    },
-    {
-      "Dimension Name": "Personality Traits and Personality Disorder Spectrum",
-      "Description": "Enduring, pervasive patterns of perceiving, relating to, and thinking about oneself and others; includes fundamental trait domains (negative affectivity, detachment, antagonism, disinhibition vs. conscientiousness, psychoticism), classic DSM-5 personality disorders (paranoid, schizoid, schizotypal, antisocial, borderline, histrionic, narcissistic, avoidant, dependent, obsessive-compulsive), and dimensional trait severity. Shapes CBT alliance, response style, and interpersonal dynamics. Updated to more explicitly include personality traits linked to paraphilic disorders (antagonism, lack of empathy, impulsivity, obsessive-compulsive traits as seen in sexual rituals) and expanded consideration of sexual orientation-based internal conflict.",
-      "categorical values": [
-        "No Personality Disorder",
-        "Paranoid",
-        "Schizoid",
-        "Schizotypal",
-        "Antisocial",
-        "Borderline",
-        "Histrionic",
-        "Narcissistic",
-        "Avoidant",
-        "Dependent",
-        "Obsessive-Compulsive",
-        "Mixed/Other Specified",
-        "Dimensional Traits: Negative Affectivity",
-        "Detachment",
-        "Antagonism",
-        "Disinhibition",
-        "Psychoticism",
-        "Perfectionism",
-        "Rigid",
-        "Emotional Instability",
-        "Attention-Seeking",
-        "Social Withdrawal",
-        "Submissiveness",
-        "Suspiciousness",
-        "Grandiosity",
-        "Hypersexuality",
-        "Sexual Orientation Conflict"
-      ],
-      "Numerical values": "Severity/presence of personality pathology (including sexual, interpersonal, and impulse-control domains) impacting relationships, emotion regulation, and therapy engagement (0 = none, 1 = severe, multi-domain dysfunction)."
-    },
-    {
-      "Dimension Name": "Social Cognition, Interpersonal Style, and Behavioral Adaptation",
-      "Description": "Captures stable style of social relatedness, empathy, attachment, interpersonal trust/mistrust, and adaptation to group settings. Includes patterns like social withdrawal, emotional detachment, mistrust, manipulation, excessive dependency, dominance/control, perfectionism, attention seeking, avoidance of intimacy, and alliance-building or disruptive tendencies in therapy. Integrated features from case studies: consensual/nonconsensual sexual behavior, distress in relationships due to paraphilia disclosure, legal involvement, and tendency for victimization or perpetration.",
-      "categorical values": [
-        "Empathic",
-        "Withdrawn",
-        "Suspicious",
-        "Manipulative",
-        "Dependent",
-        "Controlling",
-        "Perfectionistic",
-        "Impulsive",
-        "Dramatic",
-        "Avoidant",
-        "Dominant",
-        "Submissive",
-        "Shallow",
-        "Rigid",
-        "Flexible",
-        "Alliance-Oriented",
-        "Alliance-Disruptive",
-        "Paraphilia-Related Conflict",
-        "Consent-Focused",
-        "Victimizing",
-        "Victimized",
-        "Legal Involvement"
-      ],
-      "Numerical values": "Degree of interpersonal/social dysfunction, legal and ethical issues, or adaptation in day-to-day functioning and CBT (0 = optimal, 1 = extreme dysfunction or maladaptive/antisocial pattern)."
-    },
-    {
-      "Dimension Name": "Medical, Vascular, and Neurological Risk Profile",
-      "Description": "Stable risk factors for cognitive decline and neurocognitive comorbidity, including cardiovascular disease, diabetes, hypertension, hyperlipidemia, history of head injury, cerebrovascular risk, genetic disorders (e.g., Huntington’s), Parkinsonian features, sleep disorder, and sensitivity to medication (e.g., neuroleptics/anticholinergics). Shapes presentation, course, and prognosis in CBT context. Expanded consideration of substance use disorders (alcohol, cocaine), childhood medical/surgical history (e.g., scoliosis) relevant to psychological adaptation.",
-      "categorical values": [
-        "No Medical Risk",
-        "Vascular Risk",
-        "Metabolic Risk",
-        "Family Dementia",
-        "Parkinsonian",
-        "Lewy Body Risk",
-        "Sleep Disorder",
-        "TBI History",
-        "Medication Sensitivity",
-        "Huntington’s Risk",
-        "Stroke/Ischemia",
-        "Substance Use Disorder",
-        "Childhood Medical/Surgical History"
-      ],
-      "Numerical values": "Aggregate medical/neuro risk for cognitive/functional decline (0 = healthy, 1 = high, multi-factorial vulnerability, including substance abuse history)."
-    },
-    {
-      "Dimension Name": "Insight, Judgment, and Capacity for CBT Engagement",
-      "Description": "Reflects baseline and personality-based (not only neurocognitive) ability to perceive difficulties, understand psychosocial/behavioral issues, participate meaningfully in therapy, make decisions, set/achieve goals; includes awareness of maladaptive personality traits, ability to accept feedback, degree of denial vs. acceptance, and capacity for collaborative alliance. Shapes CBT outcome and therapeutic contact. Updated to include denial/minimization of paraphilic or sexual urges, coercive/antisocial behavior, and impact of legal system involvement, as well as internal conflict around sexual identity, readiness to change paraphilic or substance-related patterns, and victim/perpetrator insight.",
-      "categorical values": [
-        "Intact Insight/Judgment",
-        "Partial Insight",
-        "Denial/Minimization",
-        "Psychotic Distortion",
-        "Narcissistic Insensitivity",
-        "Motivated for Therapy",
-        "Resistant",
-        "Alliance-Oriented",
-        "Alliance-Disruptive",
-        "Paraphilia-Related Denial",
-        "Legal System Conflict",
-        "Internal Sexual Identity Ambivalence",
-        "Victim/Perpetrator Insight"
-      ],
-      "Numerical values": "Level of insight/judgment and effective capacity for CBT participation (0 = fully capable, 1 = profoundly impaired due to denial, personality pathology, or legal/ethical barriers)."
-    }
-  ]
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Presenting Problem/Diagnosis",
+        "description": "Spans emotional, anxiety, depressive, trauma-related, somatic, behavioral, comorbid, and culturally-shaped syndromes relevant to CBT/UP, reflecting functional impairment even when formal diagnostic criteria are unmet. Includes commonly comorbid and transdiagnostic presentations: anxiety and depressive disorders, trauma, compulsivity, chronic pain, sleep disturbance, eating/body image issues, substance use, non-suicidal and suicidal self-injury, ADHD, personality and cross-cultural/atypical syndromes (e.g., Taijin kyofusho), and complex cases with secondary or functionally impairing symptoms. Also acknowledges necessity of profile- and dimensional-based formulations (e.g., using MEDI), as well as readiness to identify features beyond categorical diagnosis.",
+        "options": [
+          "anxiety disorders (multi-diagnostic/comorbid presentation)",
+          "major depressive disorder",
+          "agoraphobia",
+          "panic disorder",
+          "obsessive-compulsive disorder",
+          "generalized anxiety disorder",
+          "ADHD",
+          "depressive disorders",
+          "specific phobia",
+          "trichotillomania",
+          "comorbid/complex presentations",
+          "functional impairment",
+          "underreporting",
+          "trauma-related disorders/PTSD",
+          "culturally-shaped syndromes (e.g., Taijin kyofusho)",
+          "alcohol/substance use disorder",
+          "chronic pain",
+          "suicidal/self-injurious behavior",
+          "insomnia/sleep disturbance",
+          "eating disorders/body image disturbance",
+          "personality disorders (e.g., borderline, obsessive-compulsive, perfectionism)",
+          "atypical/non-DSM disorder",
+          "categorical DSM diagnosis not clearly specified",
+          "none specified"
+        ]
+      },
+      {
+        "dimension_name": "Treatment Modality",
+        "description": "Incorporates individual, group, and stepped/multidisciplinary approaches, as well as flexible, modular, technology-facilitated, culturally tailored, and self-help options. Emphasizes the value of adaptation for cultural/functional needs, with group-based learning, cross-cultural delivery (including adaptation for stigma, language, rapport, case formulation), and task-shared/non-specialist implementation.",
+        "options": [
+          "group (structured outpatient)",
+          "individual (cross-cultural/standard)",
+          "individual check-ins adjunct to group",
+          "stepped care (group-to-individual)",
+          "flexible/modular protocol",
+          "culturally adapted protocol (surface or deep level)",
+          "added rapport/trust-building sessions",
+          "web-based/technology-delivered",
+          "self-administered/guided self-help",
+          "programmatic implementation (e.g., organizational rollout)",
+          "multidisciplinary/staff/nurse-led",
+          "telehealth/remote",
+          "not specified"
+        ]
+      },
+      {
+        "dimension_name": "Evidence-Based Treatment Orientation",
+        "description": "Strengthens emphasis on the Unified Protocol’s transdiagnostic focus, rigorous outcome measurement (with standard tools/interviews), modular/personalized intervention, stepped care, group-based and culturally adapted options, and fidelity and implementation/dissemination models. Explicitly includes train-the-trainer and certification protocols, and a growing evidence base for adaptation/dissemination in non-specialist and international contexts.",
+        "options": [
+          "strong alignment",
+          "transdiagnostic protocol (Unified Protocol)",
+          "emotion-focused CBT",
+          "modular/flexible protocol",
+          "group-based/peer learning",
+          "culturally adapted CBT",
+          "measurement-based care",
+          "adapted psychoeducation",
+          "respect/collaboration emphasis",
+          "stepped care",
+          "personalized medicine/assessment-driven protocol",
+          "technology-based (web/guided self-help, telehealth)",
+          "multidisciplinary/task-shared delivery",
+          "train-the-trainer model",
+          "implementation/supervision focused",
+          "not specified"
+        ]
+      },
+      {
+        "dimension_name": "Core Temperamental Vulnerabilities",
+        "description": "Highlights high neuroticism/negative affect, emotion dysregulation, avoidance, and cognitive inflexibility as central, while also integrating traits including low extraversion/positive affect, anxiety sensitivity, experiential/behavioral avoidance, emotional suppression, perfectionism, hypervigilance, distress about sleep/body, shame, organizational/executive dysfunction, and skill/strengths deficits. Cross-cultural and syndromal heterogeneity is incorporated, as is functional impairment across domains.",
+        "options": [
+          "high neuroticism/negative affect",
+          "low distress tolerance",
+          "experiential avoidance",
+          "low extraversion/positive affect",
+          "perfectionism",
+          "embarrassment/self-consciousness",
+          "emotional suppression",
+          "high emotional avoidance/limited awareness",
+          "trauma-related hypervigilance",
+          "distrust in relationships",
+          "shame/guilt focus",
+          "organizational/executive dysfunction",
+          "information processing/cognitive inflexibility",
+          "skill/strength deficits",
+          "functional impairment",
+          "anxiety sensitivity",
+          "eating/body image concerns",
+          "not specified"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Emotional Regulation Style",
+        "description": "Patterns of emotional experience, regulation, and expression shaped by cultural context and personal history.",
+        "value": "Emotion regulation difficulties span avoidance, suppression, non-acceptance, rumination, impulsivity (self-injury, substance use, eating, sleep disturbance), and low emotional awareness/alexithymia. Many also exhibit variable capacity for mindful emotion awareness and cognitive flexibility. Regulation is further complicated by comorbidity, functional impairment, and contextual/cultural themes. Therapy builds adaptive, flexible, and accepting skills, with an emphasis on experiential and cognitive approaches and hierarchy-based exposures."
+      },
+      {
+        "dimension_name": "Comorbidity Profile",
+        "description": "Impact of co-occurring disorders and culturally/trauma-influenced presentations in cross-cultural settings.",
+        "value": "Comorbidity—including anxiety, depressive, trauma, substance, eating, sleep/pain, neurological (ADHD), and personality syndromes—is typical and guides transdiagnostic case conceptualization. Subclinical or functionally impairing syndromes and cultural syndromes (Taijin kyofusho, culturally-specific avoidance/shame presentations) are identified through broad, dimensional assessment. Cultural, ethnic, and context variables frequently interact with primary and secondary symptom expression."
+      },
+      {
+        "dimension_name": "Cultural and Contextual Factors",
+        "description": "How culture, worldview, and identity shape symptom presentation, therapeutic rapport, and adaptation needs.",
+        "value": "Culture, ethnicity, and social context strongly influence symptom language, meaning, and presentation (e.g., somatic, self-harm, or avoidance expressed in culture-bound idioms), as well as rapport, trust, stigma, and adaptation needs. Culturally adapted assessment (e.g., the CFI/MEIM), translation, flexibility in process/delivery, and consideration of norms and barriers (including stigma and low access) are expected. Collaboration around adaptation level and specific needs is critical to engagement and effectiveness."
+      },
+      {
+        "dimension_name": "Relationship to Emotional Experience",
+        "description": "How patients' cultural and personal narratives shape their view of emotions, self, and therapy.",
+        "value": "Emotional experiences may be judged as dangerous, shameful, or confusing, with themes of blame, loss, or perfection. Some patients lack emotional language or use somatic metaphors. Cultural narratives affect interpretation and coping. Therapy provides psychoeducation and exercises (ARC, mindful emotion awareness) to normalize emotions and address maladaptive beliefs, with attention to culture/language in practice and conceptualization."
+      },
+      {
+        "dimension_name": "Avoidance and Coping Behaviors",
+        "description": "Most common emotion-driven and safety-seeking patterns, including culture- and trauma-specific expressions.",
+        "value": "Avoidance behaviors are extensive—encompassing cognitive (worry, suppression, rumination, distraction), behavioral (compulsions, substance use, self-injury, avoidance/social withdrawal), and somatic (pain, sleep, eating, safety signals) strategies. These are shaped by culture, family, and symptom subtype, and frequently reinforced by functional/contextual limitations. Therapy routinely incorporates identification and targeted intervention (emotion exposure hierarchies, cognitive tools) for avoidance, with personalization for cultural and contextual norms."
+      },
+      {
+        "dimension_name": "Assessment and Case Formulation Engagement",
+        "description": "Willingness and barriers to collaborative assessment and formulation, with a focus on cultural tailoring.",
+        "value": "Patients typically engage well when rationale for assessment is clear, tools are brief/adapted for language and literacy, and progress can be observed. Ethnic/cultural adaptations (CFI, MEIM) and team/tailored protocols support buy-in, especially for complex, functionally impaired, or marginalized populations. Willingness is enhanced by respect for culture, reduced stigma, and scheduled feedback on progress/accomplishment charts."
+      },
+      {
+        "dimension_name": "Approach to Core Transdiagnostic Features",
+        "description": "How UP modules and process address culture- and trauma-linked mechanisms across diverse cases.",
+        "value": "All UP modules target transdiagnostic mechanisms—emotion avoidance, cognitive inflexibility, safety/avoidant behavior—across cultural and syndromal lines. Hierarchical and modular sequencing permits focus on dominant process (e.g., emotion-driven behaviors, mindfulness, interoceptive awareness) as relevant. Comorbidity and cultural overlap are expected, and therapy integrates flexible module selection and adaptation for culture, age, and comorbidity, including non-DSM problem constellations."
+      },
+      {
+        "dimension_name": "Attitude Toward Psychoeducation",
+        "description": "Receptivity and obstacles to culturally relevant psychoeducation, rationale, and normalization.",
+        "value": "Psychoeducation is widely accepted when linked to culturally and personally relevant examples/goals and delivered at the right literacy/learning level, with translation and adaptation as needed. The importance of transdiagnostic models, normalization, and evidence for broad application is reinforced, including discussion of atypical, somatic, or culture-bound presentations and functional syndromes."
+      },
+      {
+        "dimension_name": "Expectation Regarding Treatment Course and Adaptation",
+        "description": "Culturally and contextually anchored expectations regarding progress, engagement, and adaptation.",
+        "value": "Diversity of expectation is the norm: most anticipate adaptation of protocol (modality, length, modules, culturally relevant rapport-building or trust-enhancement, session translation/adjustment). Markers of quality—visible progress, skill generalization, culturally meaningful adaptation, flexible sequencing, and opportunity for relapse prevention and maintenance—are prioritized. Technology or non-specialist/organizational implementation is welcome when access/trust issues exist."
+      },
+      {
+        "dimension_name": "Openness to Evidence-Based/Scientific Rationale",
+        "description": "Cultural and individual influences on acceptance of research-based interventions.",
+        "value": "Openness generally increases with transparency of rationale, involvement in monitoring, and validation from clinicians/institutions (including demonstration of cultural fit and safety). Skepticism (due to culture, prior experience, stigma, language) requires additional engagement and psychoeducation, and messaging about protocol adaptation and successful global/cultural dissemination further supports acceptance."
+      },
+      {
+        "dimension_name": "Expectations for Treatment Quality",
+        "description": "Values for therapist qualities, structure, and culturally responsive adaptations.",
+        "value": "High value is placed on therapist flexibility, skill, and cultural responsiveness, as well as systematic adaptation (modality, content, process) to personal/contextual circumstance. Experience with group-based and multidisciplinary settings is valued, as is access to evidence-informed protocols, outcome monitoring, and personalized options for session length, frequency, pacing, and follow-up/relapse prevention."
+      },
+      {
+        "dimension_name": "Receptivity to Multi-Disciplinary and Experienced Clinician Input",
+        "description": "Openness to integrating multiple professional recommendations and culturally tailored input.",
+        "value": "Patients are receptive to stepped, multidisciplinary, and team-delivered care when it improves access, cultural fit, and treatment consistency. Recognition of expertise (certification, implementation sites, trainer models) increases trust, and integration of psychiatric/medical/cultural perspectives (as part of shared case formulation/adaptation) is expected for complex/comorbid cases, especially when cultural/linguistic or medical adaptation is relevant."
+      }
+    ]
+  }
 }

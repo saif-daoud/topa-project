@@ -1088,5 +1088,92 @@
       "risk": "Can be perceived as invalidating, distancing, or even hurtful, potentially undermining the alliance.",
       "confidence_score": 0.9
     }
-  ]
+  ],
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "level_of_personality_disorder_features",
+        "description": "The extent to which the patient exhibits personality disorder traits that impact therapy, such as avoidance, dependency, perfectionism, or emotional dysregulation.",
+        "options": [
+          "none",
+          "mild",
+          "moderate",
+          "severe"
+        ]
+      },
+      {
+        "dimension_name": "therapy_engagement_style",
+        "description": "The patient's typical style of engagement in cognitive behavioral therapy sessions, reflecting tendencies such as passivity, resistance, cooperativeness, or excessive dependence.",
+        "options": [
+          "highly cooperative",
+          "passively engaged",
+          "actively resistant",
+          "overly dependent",
+          "argumentative",
+          "circumlocutory"
+        ]
+      },
+      {
+        "dimension_name": "core_negative_belief_focus",
+        "description": "Primary domain of the patient's negative core beliefs: self-worth, competence, relationships, or future outlook.",
+        "options": [
+          "unlovable/self-worth",
+          "incompetent/achievement",
+          "pessimistic/future",
+          "mistrustful/relationships"
+        ]
+      },
+      {
+        "dimension_name": "cognitive_style",
+        "description": "The patient's most pronounced patterns of cognitive errors or thinking traps.",
+        "options": [
+          "catastrophizing",
+          "dichotomous/all-or-nothing thinking",
+          "personalization",
+          "should statements/moral imperatives",
+          "discounting the positive",
+          "selective abstraction",
+          "arbitrary inference",
+          "overgeneralization"
+        ]
+      },
+      {
+        "dimension_name": "reaction_to_therapist_structure",
+        "description": "How the patient typically responds to the structured and active nature of cognitive behavioral therapy.",
+        "options": [
+          "adapts well",
+          "initial resistance but adapts",
+          "prefers unstructured/venting",
+          "actively resists structure"
+        ]
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "schema_description",
+        "description": "An open-ended account of the patient's prevailing schemas/core beliefs and how they shape information processing, affect, and behavior.",
+        "value": "The patient tends to hold rigid, negative, self-referential schemas (e.g., 'I am unlovable,' 'I am incompetent,' 'There is something wrong with me') that are easily triggered by interpersonal or achievement challenges. These schemas, shaped by early life experiences and reinforced by critical relationships, lead to stable patterns of interpreting events through the lens of personal defect or anticipated rejection. The schemas can become pervasive in severe or chronic cases, dominating cognition and affecting concentration, motivation, and social behavior."
+      },
+      {
+        "dimension_name": "therapy_interfering_behaviors",
+        "description": "Open-ended description of stable behaviors in session that slow down or disrupt therapy.",
+        "value": "Behavioral patterns may include being late or missing sessions, dominating sessions with tangents or venting, prolonged silences or non-responsiveness, argumentativeness, reluctance or refusal to complete homework, or misuse of therapist accessibility. Some patients chronically test boundaries or resist the therapist’s agenda as an assertion of independence or out of mistrust. Others may show excessive dependence, repeatedly seeking reassurance or contact. These behaviors often mirror longstanding interpersonal patterns and reflect underlying beliefs about the self and others."
+      },
+      {
+        "dimension_name": "emotional_regulation_profile",
+        "description": "Description of typical emotional regulation strengths and vulnerabilities.",
+        "value": "Patients often experience high emotional intensity, with low distress tolerance and a tendency for mood to color their interpretations. There may be difficulty identifying and expressing affect directly, frequent emotional avoidance, or impulsive/overwhelmed responses to emotional triggers. Some patients quickly shift from one affect to another (e.g., fear to anger), leading to confusing or self-defeating behaviors."
+      },
+      {
+        "dimension_name": "typical_therapy_response_patterns",
+        "description": "Patterns in how the patient processes feedback, follows through on assignments, and collaborates with the therapist.",
+        "value": "Patients may initially express skepticism or passivity, requiring repeated rationale and demonstration of techniques. There can be a pattern of agreeing to homework but failing to follow through, then reporting this as evidence of personal defect. When challenged, patients may either withdraw or become argumentative, with core beliefs fueling avoidance or resistance. Over time, some shift into greater collaboration if the therapist maintains optimism, structure, and a nonjudgmental stance."
+      },
+      {
+        "dimension_name": "compensatory_strategies",
+        "description": "Recurring behavioral or interpersonal strategies the patient uses to offset or avoid activation of core negative beliefs.",
+        "value": "Examples include emotional withdrawal, avoidance of new situations, excessive people-pleasing, dishonesty to avoid perceived rejection, or aggressive posturing to preempt hurt. These strategies are often rigid and self-defeating, preventing correction of the underlying beliefs and sometimes impeding the therapy process itself."
+      }
+    ]
+  }
 }

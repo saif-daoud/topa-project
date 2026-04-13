@@ -2045,5 +2045,337 @@
       "risk": "Decreases motivation and self-efficacy.",
       "confidence_score": 0.92
     }
-  ]
+  ],
+  "user_profile": {
+    "categorical_dimensions": [
+      {
+        "dimension_name": "Primary Clinical Syndrome/Disorder",
+        "description": "The predominant clinical syndrome, disorder, or pattern of distress present over time.",
+        "options": [
+          "Anxiety Disorder",
+          "Depressive Disorder",
+          "Bipolar Disorder",
+          "Obsessive-Compulsive Disorder (OCD)",
+          "Posttraumatic Stress Disorder (PTSD)",
+          "Eating Disorder",
+          "Borderline Personality Disorder",
+          "Alcohol/Substance Use Disorder",
+          "Somatic Symptom Disorder",
+          "Other/Not specified"
+        ],
+        "value": "Anxiety Disorder"
+      },
+      {
+        "dimension_name": "Comorbidity",
+        "description": "Presence of co-occurring psychological, medical, or behavioral health conditions.",
+        "options": [
+          "None",
+          "Depression",
+          "Anxiety",
+          "Substance Use Disorder",
+          "Personality Disorder",
+          "Medical Condition",
+          "Emotional Disorder",
+          "Psychosis",
+          "Suicidality",
+          "OCD",
+          "Eating Disorder",
+          "Traumatic Brain Injury",
+          "Sleep Impairment",
+          "Multiple/Complex"
+        ],
+        "value": "Multiple/Complex"
+      },
+      {
+        "dimension_name": "Temperamental Negative Affectivity/Neuroticism",
+        "description": "Stable tendency toward high or low negative affect (e.g., neuroticism, emotional reactivity).",
+        "options": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "value": "High"
+      },
+      {
+        "dimension_name": "Trait Anxiety/Sensitivity",
+        "description": "Tendency to experience anxiety and sensitivity to physical symptoms or threat cues.",
+        "options": [
+          "Absent",
+          "Mild",
+          "Moderate",
+          "High"
+        ],
+        "value": "High"
+      },
+      {
+        "dimension_name": "Extraversion/Positive Affectivity",
+        "description": "Stably high, moderate, or low levels of positive affect, sociability, and enthusiasm.",
+        "options": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "value": "Low"
+      },
+      {
+        "dimension_name": "Emotion Awareness/Identification",
+        "description": "General ability to recognize, describe, and understand emotions.",
+        "options": [
+          "Poor",
+          "Moderate",
+          "Adequate"
+        ],
+        "value": "Moderate"
+      },
+      {
+        "dimension_name": "Cognitive Flexibility/Rigidity",
+        "description": "Ability or inflexibility in adapting beliefs, shifting thinking, and changing maladaptive patterns.",
+        "options": [
+          "High/Flexible",
+          "Moderate",
+          "Low/Rigid"
+        ],
+        "value": "Low/Rigid"
+      },
+      {
+        "dimension_name": "Dominant/Preferred Coping Style",
+        "description": "Usual coping responses to distress: avoidant, approach, dependent, mixed, other.",
+        "options": [
+          "Avoidant",
+          "Approach/Active Engagement",
+          "Dependent",
+          "Mixed",
+          "Other"
+        ],
+        "value": "Avoidant"
+      },
+      {
+        "dimension_name": "Behavioral Avoidance/Safety Behavior Pattern",
+        "description": "Degree and style of avoidance, safety-behavior use, and withdrawal in response to distress or anxiety.",
+        "options": [
+          "Minimal",
+          "Moderate",
+          "Prominent",
+          "Passive",
+          "Active",
+          "Severe"
+        ],
+        "value": "Prominent"
+      },
+      {
+        "dimension_name": "Core Problematic Beliefs/Schemas",
+        "description": "Stable patterns of maladaptive core beliefs and cognitive errors (e.g., self-blame, incompetence, negative self-esteem, catastrophizing).",
+        "options": [
+          "Incompetence",
+          "Self-Blame",
+          "Worthlessness",
+          "Threat/Vulnerability",
+          "Overgeneralization",
+          "Emotional Reasoning",
+          "Catastrophizing",
+          "None"
+        ],
+        "value": "Self-Blame"
+      },
+      {
+        "dimension_name": "Therapy Motivation/Engagement",
+        "description": "Level and style of participation, openness to change, and completion of therapy assignments.",
+        "options": [
+          "Low",
+          "Moderate",
+          "High",
+          "Variable",
+          "Ambivalent",
+          "Skeptical/Resistant",
+          "Collaborative",
+          "Reluctant"
+        ],
+        "value": "Moderate/Ambivalent"
+      },
+      {
+        "dimension_name": "Cultural Identity/Shaping/Background",
+        "description": "Influence of culture, family, and identity on beliefs, behaviors, and therapy engagement.",
+        "options": [
+          "Minimal",
+          "Moderate",
+          "Significant",
+          "Western/Individualist",
+          "Non-Western/Collectivist",
+          "Other"
+        ],
+        "value": "Moderate"
+      },
+      {
+        "dimension_name": "Educational/Intellectual Functioning",
+        "description": "Usual level of intellectual ability, literacy, and cognitive capacity for therapy delivery.",
+        "options": [
+          "Low literacy/IQ",
+          "Average IQ/literacy",
+          "High IQ/literacy",
+          "Needs simplified materials",
+          "Requires oral adaptation",
+          "Intellectual disability"
+        ],
+        "value": "Average IQ/literacy"
+      },
+      {
+        "dimension_name": "Developmental Stage",
+        "description": "Age-related context including developmental phase at time of trauma or current cognitive stage.",
+        "options": [
+          "Early childhood",
+          "Adolescence",
+          "Adult",
+          "Older adult",
+          "Unknown"
+        ],
+        "value": "Adult"
+      },
+      {
+        "dimension_name": "Personality Trait/Disorder",
+        "description": "Dominant personality traits or personality disorder impacting functioning and therapy.",
+        "options": [
+          "None",
+          "Cluster A",
+          "Cluster B",
+          "Cluster C",
+          "Avoidant",
+          "Dependent",
+          "Obsessive-Compulsive",
+          "Narcissistic",
+          "Borderline"
+        ],
+        "value": "Cluster C (Avoidant, Dependent, Obsessive-Compulsive)"
+      },
+      {
+        "dimension_name": "Insight Level",
+        "description": "Recognition of cognitive errors, obsessions, or beliefs as maladaptive.",
+        "options": [
+          "Good",
+          "Poor",
+          "Variable",
+          "Delusional conviction"
+        ],
+        "value": "Variable"
+      },
+      {
+        "dimension_name": "Tolerance for Distress/Physical Sensations",
+        "description": "Comfort or discomfort with experiencing and accepting anxiety or emotional distress.",
+        "options": [
+          "High",
+          "Moderate",
+          "Low",
+          "Variable"
+        ],
+        "value": "Low"
+      },
+      {
+        "dimension_name": "Session Engagement Behavior",
+        "description": "Typical behavior in therapy sessions regarding participation, exposure, and homework.",
+        "options": [
+          "Fully engaged",
+          "Consistent homework",
+          "Reluctant",
+          "Nonadherent",
+          "Missed sessions",
+          "Storytelling/Topic-shifting",
+          "Variable"
+        ],
+        "value": "Storytelling/Topic-shifting"
+      },
+      {
+        "dimension_name": "Social Support/Familial Involvement",
+        "description": "Degree and type of involvement of family/social network in distress and therapy.",
+        "options": [
+          "Supportive/enabling",
+          "Supportive/non-enabling",
+          "Conflictual",
+          "Minimal",
+          "Variable"
+        ],
+        "value": "Supportive/enabling"
+      },
+      {
+        "dimension_name": "Resilience and Coping Capacity",
+        "description": "Ability to recover from or manage distress and therapy setbacks.",
+        "options": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "value": "Moderate"
+      }
+    ],
+    "free_form_dimensions": [
+      {
+        "dimension_name": "Habitual Thinking Style and Cognitive Errors",
+        "description": "Stable ways of interpreting experiences, including cognitive distortions and negative biases.",
+        "value": "Frequently engages in automatic negative thoughts, catastrophic expectations, perfectionism, and overestimation of threat; interprets benign situations as dangerous and self-criticism and rumination are recurrent."
+      },
+      {
+        "dimension_name": "Core Emotion Regulation Difficulties",
+        "description": "Patterns in managing emotional experiences, including suppression, avoidance, and acceptance.",
+        "value": "Prone to intense distress, perceives emotions as intolerable, and often avoids or suppresses feelings. Emotion-driven behaviors and difficulty with nonjudgmental acceptance are prominent."
+      },
+      {
+        "dimension_name": "Avoidance and Safety/Ritual Patterns",
+        "description": "Behavioral and cognitive strategies for minimizing distress, including avoidance, rituals, and safety behaviors.",
+        "value": "Uses overt and mental rituals, reassurance-seeking, avoidance, overpreparation, distraction, procrastination, and suppression to manage distress."
+      },
+      {
+        "dimension_name": "Engagement in Therapy and Attitude Toward Change",
+        "description": "Typical participation style in CBT sessions, openness to interventions, and motivation over time.",
+        "value": "Initially ambivalent, skeptical, or cautious about therapy; engagement and compliance are variable, improving with structured approaches, collaboration, support, and gradual achievement of mastery."
+      },
+      {
+        "dimension_name": "Strengths, Resilience, and Capacity for Change",
+        "description": "Personal strengths, adaptive qualities, or supports that aid functional improvement and therapy progress.",
+        "value": "Shows insight, can articulate goals, and can increase engagement with encouragement. Values collaborative relationships and can utilize intelligence, conscientiousness, or social support when coached."
+      },
+      {
+        "dimension_name": "Sociocultural, Developmental, and Relational Context",
+        "description": "Background factors such as culture, family history, trauma, and social supports that influence therapy.",
+        "value": "Cultural and family history shape attitudes toward emotion and help-seeking; early trauma, criticism, and emotional neglect reinforce negative schemas and mistrust. Degree of acculturation and support impacts engagement."
+      },
+      {
+        "dimension_name": "Major Barriers to Therapy/Session Engagement Obstacles",
+        "description": "Stable obstacles to participating fully in CBT or benefiting from interventions.",
+        "value": "Barriers include comorbid conditions, avoidance, perfectionism, self-judgment, motivation, lack of trust, practical problems, and defensiveness; may default to topic-shifting or withdrawal when challenged."
+      },
+      {
+        "dimension_name": "Interpersonal Style and Relationship Patterns",
+        "description": "Stable patterns of relating socially and in the therapeutic alliance, including trust, reassurance-seeking, and avoidance.",
+        "value": "Interpersonally avoidant, sensitive to rejection, often withdraws or seeks reassurance, and is vigilant to criticism; ambivalence and mistrust may initially limit alliance and engagement."
+      },
+      {
+        "dimension_name": "Pattern of Emotional Recall and Affective Profile",
+        "description": "Dominant emotional experiences and recall tendencies, and typical mood states.",
+        "value": "Recalls and emphasizes peak anxiety/distress, underreports calm periods. Emotional experiences dominated by anxiety, shame, guilt, hopelessness, irritability, and pessimism about symptom control."
+      },
+      {
+        "dimension_name": "Response to Stress and Setbacks",
+        "description": "Emotional and behavioral reaction to therapy setbacks, lapses, or stressors.",
+        "value": "Sensitive to setbacks; discouragement and self-criticism may result in withdrawal, increased anxiety, or relapse. Structured feedback and reminders of progress help maintain persistence."
+      },
+      {
+        "dimension_name": "Self-Monitoring and Homework Completion",
+        "description": "Ability and attitude toward tracking symptoms and completing therapy assignments.",
+        "value": "Variable reliability; tends to be emotion-focused and resistant to objective monitoring. Needs encouragement, structure, and external accountability to optimize adherence."
+      },
+      {
+        "dimension_name": "Coping Skills and Compensatory Strategies",
+        "description": "Range of behavioral/cognitive strategies used for distress, including adaptive and maladaptive approaches.",
+        "value": "Habitual use of avoidance, rumination, reassurance seeking, perfectionism, and passivity; may use substance, anger outbursts, or dependence on others for comfort."
+      },
+      {
+        "dimension_name": "Typical Social/Interpersonal Patterns",
+        "description": "Role of family/social systems in reinforcing or supporting behaviors and therapy progress.",
+        "value": "Family and others may facilitate or enable rituals and avoidance; support and conflict within the social network affect symptoms and engagement."
+      },
+      {
+        "dimension_name": "Therapy Preferences and Therapist Style",
+        "description": "Preferred format and stance from therapist; features that optimize motivation and engagement.",
+        "value": "Prefers collaborative, supportive, and gently challenging approaches; responds poorly to authoritarian, rigid, or unaccommodating styles. Gradual, structured pacing and practical coaching promote trust and participation."
+      }
+    ]
+  }
 }
