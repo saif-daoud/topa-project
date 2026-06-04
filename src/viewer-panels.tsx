@@ -376,7 +376,7 @@ export function MethodPanel({
   note,
 }: {
   role: string;
-  tone: "primary" | "compare";
+  tone: "primary";
   method: ViewerMethod;
   component: string;
   value: any;

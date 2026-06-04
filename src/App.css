@@ -11,9 +11,6 @@
   --accent: #0f766e;
   --accent-strong: #115e59;
   --accent-soft: rgba(15, 118, 110, 0.12);
-  --compare: #b45309;
-  --compare-strong: #92400e;
-  --compare-soft: rgba(180, 83, 9, 0.12);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 14px;
@@ -24,7 +21,7 @@
   color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(15, 118, 110, 0.13), transparent 34%),
-    radial-gradient(circle at top right, rgba(180, 83, 9, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(29, 78, 216, 0.08), transparent 28%),
     linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 58%, #edf2f7 100%);
 }
 
@@ -148,9 +145,9 @@
 }
 
 .statusBanner--warn {
-  border-color: rgba(180, 83, 9, 0.24);
-  background: rgba(180, 83, 9, 0.09);
-  color: var(--compare-strong);
+  border-color: rgba(15, 118, 110, 0.24);
+  background: rgba(15, 118, 110, 0.09);
+  color: var(--accent-strong);
 }
 
 .controls {
@@ -170,6 +167,10 @@
   grid-column: span 3;
 }
 
+.controlMethod {
+  grid-column: span 4;
+}
+
 .controlDescription {
   grid-column: 1 / -1;
 }
@@ -186,8 +187,7 @@
 }
 
 .select,
-.btn,
-.candidateCard {
+.methodStatic {
   font: inherit;
 }
 
@@ -202,60 +202,21 @@
   transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 
-.select:focus,
-.btn:focus-visible,
-.candidateCard:focus-visible {
+.select:focus {
   border-color: rgba(15, 118, 110, 0.45);
   box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.14);
 }
 
-.buttonRow,
-.modalActions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.actionHint {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.btn {
+.methodStatic {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  min-height: 45px;
+  width: 100%;
   border: 1px solid var(--line);
-  border-radius: 999px;
   background: var(--surface-strong);
+  border-radius: var(--radius-sm);
   color: var(--text);
-  padding: 11px 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
-}
-
-.btn:hover,
-.candidateCard:hover {
-  transform: translateY(-1px);
-}
-
-.btn:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.btnAccent {
-  border-color: rgba(15, 118, 110, 0.32);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-  color: #ffffff;
-}
-
-.btnGhost {
-  background: transparent;
+  padding: 7px 12px;
 }
 
 .descriptionCard {
@@ -334,7 +295,7 @@
 }
 
 .emptyEyebrow {
-  color: var(--compare-strong);
+  color: var(--accent-strong);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -377,89 +338,12 @@
   gap: 16px;
 }
 
-.llmFeedbackCard {
-  margin-bottom: 16px;
-  padding: 20px;
-}
-
-.llmFeedbackHeader {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.llmFeedbackTitle {
-  margin: 12px 0 0;
-  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  font-size: 1.6rem;
-  letter-spacing: -0.03em;
-}
-
-.llmConsensusBadge {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(15, 118, 110, 0.22);
-  border-radius: 999px;
-  background: rgba(15, 118, 110, 0.09);
-  color: var(--accent-strong);
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.llmFeedbackGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.llmFeedbackPane,
-.llmReasonBlock {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.62);
-  padding: 16px;
-}
-
-.llmFeedbackMeta,
-.llmReasonText {
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-.llmFeedbackMeta {
-  margin-top: 8px;
-  font-size: 13px;
-}
-
-.llmFeedbackMetaStrong,
-.llmWinnerFallback {
-  color: var(--text);
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.llmReasonBlock {
-  margin-top: 14px;
-}
-
-.panelGrid--compare {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .panelCard {
   overflow: hidden;
 }
 
 .panelCard--primary {
   border-color: rgba(15, 118, 110, 0.18);
-}
-
-.panelCard--compare {
-  border-color: rgba(180, 83, 9, 0.18);
 }
 
 .panelHeader {
@@ -478,11 +362,6 @@
 .panelPill--primary {
   background: var(--accent-soft);
   color: var(--accent-strong);
-}
-
-.panelPill--compare {
-  background: var(--compare-soft);
-  color: var(--compare-strong);
 }
 
 .panelTitle {
@@ -628,69 +507,14 @@
   word-break: break-word;
 }
 
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: rgba(24, 33, 47, 0.42);
-}
-
-.modalCard {
-  width: min(860px, 100%);
-  padding: 22px;
-}
-
-.candidateGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin: 18px 0 22px;
-}
-
-.candidateCard {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.72);
-  padding: 16px;
-  cursor: pointer;
-  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
-}
-
-.candidateCard--selected {
-  border-color: rgba(15, 118, 110, 0.44);
-  background: rgba(15, 118, 110, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.1);
-}
-
-.candidateTitle {
-  color: var(--text);
-}
-
-.candidateMeta {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
 @media (max-width: 1120px) {
-  .hero,
-  .panelGrid--compare {
-    grid-template-columns: 1fr;
-  }
-
-  .llmFeedbackGrid {
+  .hero {
     grid-template-columns: 1fr;
   }
 
   .control,
-  .controlActions {
+  .controlActions,
+  .controlMethod {
     grid-column: span 6;
   }
 }
@@ -707,15 +531,12 @@
 
   .control,
   .controlActions,
+  .controlMethod,
   .controlDescription {
     grid-column: 1 / -1;
   }
 
   .panelHeader {
-    flex-direction: column;
-  }
-
-  .llmFeedbackHeader {
     flex-direction: column;
   }
 
