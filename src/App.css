@@ -167,10 +167,6 @@
   grid-column: span 3;
 }
 
-.controlMethod {
-  grid-column: span 4;
-}
-
 .controlDescription {
   grid-column: 1 / -1;
 }
@@ -186,8 +182,7 @@
   text-transform: uppercase;
 }
 
-.select,
-.methodStatic {
+.select {
   font: inherit;
 }
 
@@ -205,18 +200,6 @@
 .select:focus {
   border-color: rgba(15, 118, 110, 0.45);
   box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.14);
-}
-
-.methodStatic {
-  display: inline-flex;
-  align-items: center;
-  min-height: 45px;
-  width: 100%;
-  border: 1px solid var(--line);
-  background: var(--surface-strong);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  padding: 7px 12px;
 }
 
 .descriptionCard {
@@ -302,14 +285,6 @@
   text-transform: uppercase;
 }
 
-.summaryStrip {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 18px 0 14px;
-}
-
-.summaryChip,
 .panelPill {
   display: inline-flex;
   align-items: center;
@@ -318,18 +293,6 @@
   padding: 10px 14px;
   font-size: 13px;
   font-weight: 700;
-}
-
-.summaryChip {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--muted);
-}
-
-.summaryChip--accent {
-  border-color: rgba(15, 118, 110, 0.2);
-  background: rgba(15, 118, 110, 0.1);
-  color: var(--accent-strong);
 }
 
 .panelGrid {
@@ -513,8 +476,7 @@
   }
 
   .control,
-  .controlActions,
-  .controlMethod {
+  .controlActions {
     grid-column: span 6;
   }
 }
@@ -531,7 +493,6 @@
 
   .control,
   .controlActions,
-  .controlMethod,
   .controlDescription {
     grid-column: 1 / -1;
   }

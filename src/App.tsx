@@ -2,7 +2,7 @@ import { startTransition, useEffect, useMemo, useState } from "react";
 import "./App.css";
 import type { MethodSpec } from "./viewer-utils";
 import { getComponentValue, getDescription, isEmptyValue, prettify, renderMiniMarkdown } from "./viewer-utils";
-import { decorateMethod, MethodIdentity, type ViewerMethod } from "./method-display";
+import { decorateMethod, type ViewerMethod } from "./method-display";
 import { MethodPanel } from "./viewer-panels";
 
 type Manifest = {
@@ -134,13 +134,6 @@ function App() {
                 </select>
               </div>
 
-              <div className="control controlMethod">
-                <div className="controlLabel">Loaded method</div>
-                <div className="methodStatic">
-                  {activeMethod ? <MethodIdentity method={activeMethod} /> : <span className="muted">No output loaded.</span>}
-                </div>
-              </div>
-
               <div className="control controlDescription">
                 <div className="controlLabel">Component description</div>
                 <div
@@ -164,28 +157,18 @@ function App() {
                 </p>
               </section>
             ) : (
-              <>
+              <section className="panelGrid">
                 {activeMethod && (
-                  <section className="summaryStrip">
-                    <div className="summaryChip summaryChip--accent">
-                      <MethodIdentity method={activeMethod} compact />
-                    </div>
-                  </section>
+                  <MethodPanel
+                    role="TOPA Late Fusion"
+                    tone="primary"
+                    method={activeMethod}
+                    component={activeComponent}
+                    value={activeValue}
+                    note={undefined}
+                  />
                 )}
-
-                <section className="panelGrid">
-                  {activeMethod && (
-                    <MethodPanel
-                      role="TOPA Late Fusion"
-                      tone="primary"
-                      method={activeMethod}
-                      component={activeComponent}
-                      value={activeValue}
-                      note={undefined}
-                    />
-                  )}
-                </section>
-              </>
+              </section>
             )}
           </>
         )}
