@@ -25,3 +25,6 @@ dist-ssr
 
 .env.local
 .env.*.local
+.wrangler
+worker/.dev.vars
+worker/.wrangler

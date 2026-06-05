@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:worker": "npm --prefix worker run dev",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "worker:migrate:local": "npm --prefix worker run migrate:local",
+    "worker:migrate:remote": "npm --prefix worker run migrate:remote",
+    "worker:deploy": "npm --prefix worker run deploy"
   },
   "dependencies": {
     "@uiw/react-json-view": "^2.0.0-alpha.39",
