@@ -260,7 +260,7 @@ function ReviewPage({
         setManifest(manifestData);
         setDescriptions(descriptionData || {});
         setReviewData(annotateReviewIds(startingData));
-        setChanges((current) => (remoteChanges.length > 0 ? mergeChanges(remoteChanges, current) : current));
+        setChanges((current) => mergeChanges(remoteChanges, current));
         setFeedbackMap((current) => ({ ...remoteFeedback, ...current }));
         setActiveComponent(manifestData.components[0] ?? "");
         setLoaded(true);
@@ -714,7 +714,7 @@ function ReviewPage({
 function mergeChanges(remote: ReviewChange[], local: ReviewChange[]) {
   const byId = new Map<string, ReviewChange>();
   for (const change of remote) byId.set(change.id, { ...change, synced: true });
-  for (const change of local) byId.set(change.id, change);
+  for (const change of local.filter((entry) => entry.synced !== true)) byId.set(change.id, change);
   return [...byId.values()].sort((left, right) => left.timestamp_utc.localeCompare(right.timestamp_utc));
 }
 
@@ -1069,7 +1069,9 @@ function ChangeLog({
   onRemoveRevoked: (change: ReviewChange) => void;
   revokedIds: Set<string>;
 }) {
-  const newest = [...changes].sort((left, right) => right.timestamp_utc.localeCompare(left.timestamp_utc));
+  const newest = changes
+    .filter((change) => change.operation !== "revoke")
+    .sort((left, right) => right.timestamp_utc.localeCompare(left.timestamp_utc));
   return (
     <div className="sideSection changeLog">
       <div className="sectionLabel">Change log</div>
@@ -1085,19 +1087,15 @@ function ChangeLog({
               </div>
               <div className="changePath">{describePath(change.path)}</div>
               <div className="changeSummary">
-                {change.operation === "revoke"
-                  ? `Reverted ${change.revoked_change_id ? change.revoked_change_id.slice(0, 18) : "a previous change"}`
-                  : change.operation === "replace"
-                  ? summarizeValue(change.new_value)
-                  : summarizeValue(change.old_value ?? change.new_value)}
+                {change.operation === "replace" ? summarizeValue(change.new_value) : summarizeValue(change.old_value ?? change.new_value)}
               </div>
               {revokedIds.has(change.id) && <div className="revokedNote">Revoked</div>}
-              {change.operation !== "revoke" && !revokedIds.has(change.id) && (
+              {!revokedIds.has(change.id) && (
                 <button className="revokeBtn" type="button" onClick={() => onRevoke(change)}>
                   Revoke
                 </button>
               )}
-              {(change.operation === "revoke" || revokedIds.has(change.id)) && (
+              {revokedIds.has(change.id) && (
                 <button className="removeHistoryBtn" type="button" onClick={() => void onRemoveRevoked(change)}>
                   Remove history
                 </button>
