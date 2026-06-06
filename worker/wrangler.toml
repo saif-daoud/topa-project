@@ -1,7 +1,6 @@
 name = "topa-ontology-review-worker"
 main = "src/index.ts"
 compatibility_date = "2025-12-15"
-account_id = "e604b23d71a8c5fbdb7ccf4f1762abcd"
 
 [dev]
 port = 8789

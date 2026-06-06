@@ -24,7 +24,7 @@ Three different secrets/identifiers are involved:
 
 - `TOKEN_SECRET`: a long random HMAC secret used by the running Worker to sign therapist sessions. Store it as a Cloudflare Worker secret, not in D1 or Git.
 - `CLOUDFLARE_API_TOKEN`: lets the GitHub Action apply D1 migrations and deploy the Worker. Store it as a GitHub Actions repository secret.
-- `CLOUDFLARE_ACCOUNT_ID`: identifies the Cloudflare account. Store it as a GitHub Actions repository secret.
+- `CLOUDFLARE_ACCOUNT_ID`: identifies the Cloudflare account. Store it as a GitHub Actions repository secret or local environment variable, not in `wrangler.toml`.
 
 The therapist access code is separate. Migration `0004_seed_review_access_code.sql` stores the SHA-256 hash for the reusable access code `review` in D1.
 
