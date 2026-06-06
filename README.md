@@ -15,8 +15,6 @@ This app lets one therapy expert refine the TOPA Late Fusion ontology from a Git
 - Worker name: `topa-ontology-review-worker`
 - Local dev port: `8789`
 - D1 database name: `topa_ontology_review_db`
-- Production Worker: `https://topa-ontology-review-worker.saif-sedaoud.workers.dev`
-- Production D1 ID: `d779c033-24f4-4a7a-bd7e-b426e32d8879`
 
 ## Production Deployment
 
@@ -25,10 +23,9 @@ Three different secrets/identifiers are involved:
 - `TOKEN_SECRET`: a long random HMAC secret used by the running Worker to sign therapist sessions. Store it as a Cloudflare Worker secret, not in D1 or Git.
 - `CLOUDFLARE_API_TOKEN`: lets the GitHub Action apply D1 migrations and deploy the Worker. Store it as a GitHub Actions repository secret.
 - `CLOUDFLARE_ACCOUNT_ID`: identifies the Cloudflare account. Store it as a GitHub Actions repository secret or local environment variable, not in `wrangler.toml`.
+- `CLOUDFLARE_D1_DATABASE_ID`: identifies the Cloudflare D1 database. Store it as a GitHub Actions repository secret or local environment variable, not in `wrangler.toml`.
 
-The therapist access code is separate. Migration `0004_seed_review_access_code.sql` stores the SHA-256 hash for the reusable access code `review` in D1.
-
-The production D1 database, migrations, Worker, `TOKEN_SECRET`, and `review` access code are already configured. The remaining GitHub setup is adding the two Actions repository secrets below.
+The therapist access code is separate. Do not commit the plaintext code or its SHA-256 hash. Insert access-code hashes directly into D1 using a private local command or the Cloudflare dashboard.
 
 ### 1. Create And Configure Cloudflare D1
 
@@ -39,10 +36,10 @@ npx wrangler login
 npx wrangler d1 create topa_ontology_review_db --config worker/wrangler.toml
 ```
 
-Copy the returned database ID into `worker/wrangler.toml`.
+Store the returned database ID in `CLOUDFLARE_D1_DATABASE_ID`. For one-off local Wrangler commands, temporarily provide that value through your shell environment or a private local config.
 
 ```toml
-database_id = "<NEW_D1_DATABASE_ID>"
+database_id = "REPLACE_WITH_TOPA_ONTOLOGY_REVIEW_D1_DATABASE_ID"
 ```
 
 Generate a long random `TOKEN_SECRET`, then store it directly in Cloudflare:
@@ -60,12 +57,6 @@ npm run worker:migrate:remote
 npm run worker:deploy
 ```
 
-The production Worker URL used by the GitHub Pages build is:
-
-```text
-https://topa-ontology-review-worker.saif-sedaoud.workers.dev/api
-```
-
 ### 2. Configure GitHub
 
 In the `saif-daoud/topa-project` repository:
@@ -73,8 +64,9 @@ In the `saif-daoud/topa-project` repository:
 1. Open **Settings > Secrets and variables > Actions**.
 2. Add `CLOUDFLARE_API_TOKEN` with Worker Scripts edit and D1 edit permissions.
 3. Add `CLOUDFLARE_ACCOUNT_ID`.
-4. Open **Settings > Pages** and select **GitHub Actions** as the source.
-5. Push the repository to `main`, or run the **Deploy to GitHub Pages** workflow manually.
+4. Add `CLOUDFLARE_D1_DATABASE_ID`.
+5. Open **Settings > Pages** and select **GitHub Actions** as the source.
+6. Push the repository to `main`, or run the **Deploy to GitHub Pages** workflow manually.
 
 The workflow applies D1 migrations, deploys the Worker, builds the frontend, and publishes:
 
@@ -92,7 +84,7 @@ npm run dev
 The local Worker script uses a development-only token secret. Never reuse it in production.
 
 ```bash
-npx wrangler secret put TOKEN_SECRET --config worker/wrangler.toml
+echo TOKEN_SECRET=<LOCAL_RANDOM_SECRET> > worker/.dev.vars
 ```
 
 ## Stored Review Data
@@ -117,8 +109,6 @@ Revoked changes expose **Remove history**, which permanently deletes both the or
 
 Insert SHA-256 hashes into `access_codes`. Because the therapist only enters an access code, use `uses_remaining = NULL` if you want the same code to work again after clearing browser storage.
 
-The production migration already inserts the reusable code `review`.
-
 Example PowerShell hash helper:
 
 ```powershell
@@ -128,4 +118,4 @@ $hash = [Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
 ($hash | ForEach-Object { $_.ToString("x2") }) -join ""
 ```
 
-Then insert that hash into D1.
+Then insert that hash into D1 with a private command or the Cloudflare dashboard. Do not commit the resulting hash.

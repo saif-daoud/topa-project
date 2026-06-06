@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev --local --port 8789 --var TOKEN_SECRET:local-dev-secret",
+    "dev": "wrangler dev --local --port 8789",
     "deploy": "wrangler deploy",
     "migrate:local": "wrangler d1 migrations apply topa_ontology_review_db --local",
     "migrate:remote": "wrangler d1 migrations apply topa_ontology_review_db --remote"

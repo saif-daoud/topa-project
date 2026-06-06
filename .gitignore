@@ -28,3 +28,4 @@ dist-ssr
 .wrangler
 worker/.dev.vars
 worker/.wrangler
+worker/*.local

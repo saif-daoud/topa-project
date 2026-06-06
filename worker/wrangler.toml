@@ -11,4 +11,4 @@ ALLOWED_ORIGINS = "https://saif-daoud.github.io,http://localhost:5173,http://127
 [[d1_databases]]
 binding = "DB"
 database_name = "topa_ontology_review_db"
-database_id = "d779c033-24f4-4a7a-bd7e-b426e32d8879"
+database_id = "REPLACE_WITH_TOPA_ONTOLOGY_REVIEW_D1_DATABASE_ID"

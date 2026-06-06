@@ -53,11 +53,19 @@ jobs:
 
   deploy-worker:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_D1_DATABASE_ID: ${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Prepare private Worker config
+        if: env.CLOUDFLARE_D1_DATABASE_ID != ''
+        run: |
+          node -e "const fs = require('fs'); const path = 'worker/wrangler.toml'; const id = process.env.CLOUDFLARE_D1_DATABASE_ID; let config = fs.readFileSync(path, 'utf8'); config = config.replace('REPLACE_WITH_TOPA_ONTOLOGY_REVIEW_D1_DATABASE_ID', id); fs.writeFileSync(path, config);"
+
       - name: Apply D1 migrations
+        if: env.CLOUDFLARE_D1_DATABASE_ID != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -67,6 +75,7 @@ jobs:
           command: d1 migrations apply topa_ontology_review_db --remote
 
       - name: Deploy Worker
+        if: env.CLOUDFLARE_D1_DATABASE_ID != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
