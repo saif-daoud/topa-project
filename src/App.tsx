@@ -261,7 +261,9 @@ function ReviewPage({
 
         if (cancelled) return;
         const localSnapshot = loadJsonObject(localStorage.getItem(STORAGE_KEYS.reviewData), null as any);
-        const startingData = remoteSnapshot || localSnapshot || sourceData;
+        const localChanges = loadJsonArray<ReviewChange>(localStorage.getItem(STORAGE_KEYS.changes));
+        const hasUnsyncedLocalWork = localChanges.some((change) => change.synced !== true);
+        const startingData = hasUnsyncedLocalWork && localSnapshot ? localSnapshot : remoteSnapshot || localSnapshot || sourceData;
 
         setManifest(manifestData);
         setDescriptions(descriptionData || {});
@@ -270,7 +272,7 @@ function ReviewPage({
         setFeedbackMap((current) => ({ ...remoteFeedback, ...current }));
         setActiveComponent(manifestData.components[0] ?? "");
         setLoaded(true);
-        setStatus(remoteSnapshot ? "" : "Review data loaded. New edits will be autosaved.");
+        setStatus(hasUnsyncedLocalWork ? "Local unsaved edits restored. They will autosave." : remoteSnapshot ? "" : "Review data loaded. New edits will be autosaved.");
       } catch (error) {
         if (!cancelled) {
           if (error instanceof ApiError && error.status === 401) {
