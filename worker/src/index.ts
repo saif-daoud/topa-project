@@ -60,6 +60,7 @@ const TOKEN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const MAX_CHANGES_PER_SYNC = 1000;
 const MAX_FEEDBACK_PER_SYNC = 200;
 const MAX_TEXT = 10000;
+const DEFAULT_BASELINE_VERSION = "topa_late_fusion_2026_06";
 
 function cors(origin: string) {
   return {
@@ -251,6 +252,27 @@ async function ensureReviewSession(env: Env, participantId: string, baselineVers
   return { id, participant_id: participantId, baseline_version: baselineVersion };
 }
 
+async function getLatestNonEmptySession(env: Env, baselineVersion: string) {
+  return (
+    (await env.DB.prepare(
+      `WITH activity AS (
+         SELECT session_id, received_at AS activity_at FROM review_changes
+         UNION ALL
+         SELECT session_id, created_at AS activity_at FROM review_snapshots
+       )
+       SELECT rs.id, rs.participant_id, rs.baseline_version
+       FROM review_sessions rs
+       JOIN activity ON activity.session_id = rs.id
+       WHERE rs.baseline_version = ?
+       GROUP BY rs.id, rs.participant_id, rs.baseline_version
+       ORDER BY MAX(activity.activity_at) DESC
+       LIMIT 1`
+    )
+      .bind(baselineVersion)
+      .first<ReviewSessionRow>()) ?? null
+  );
+}
+
 async function getLatestSnapshot(env: Env, sessionId: string) {
   return (
     (await env.DB.prepare("SELECT data_json, created_at FROM review_snapshots WHERE session_id = ? ORDER BY created_at DESC LIMIT 1")
@@ -417,8 +439,10 @@ async function getSessionFromToken(env: Env, token: string, baselineVersion: str
   const payload = await verifyToken(env, token);
   const participantId = String(payload.participant_id || "");
   if (!participantId) throw new Error("Missing participant_id");
-  const session = await ensureReviewSession(env, participantId, baselineVersion);
-  return { participantId, session };
+  const requestedSession = await ensureReviewSession(env, participantId, baselineVersion);
+  const savedReviewSession = await getLatestNonEmptySession(env, baselineVersion);
+  const session = savedReviewSession || requestedSession;
+  return { participantId: session.participant_id, session };
 }
 
 function errorResponse(message: string, status: number, headers: HeadersInit) {
@@ -442,6 +466,7 @@ export default {
         const body: any = await req.json().catch(() => ({}));
         const code = sanitizeText(body?.code, 200);
         const email = sanitizeText(body?.email, 320);
+        const baselineVersion = sanitizeText(body?.baseline_version, 120) || DEFAULT_BASELINE_VERSION;
         if (!code) return errorResponse("Missing code", 400, headers);
 
         const codeHash = await sha256Hex(code);
@@ -450,7 +475,12 @@ export default {
         if (accessCode.active !== 1) return errorResponse("Code inactive", 403, headers);
         if (accessCode.expires_at && Date.now() > Date.parse(accessCode.expires_at)) return errorResponse("Code expired", 403, headers);
 
-        const existingParticipant = email ? await dbFindParticipantByEmail(env, email) : null;
+        const savedReviewSession = email ? null : await getLatestNonEmptySession(env, baselineVersion);
+        const existingParticipant = email
+          ? await dbFindParticipantByEmail(env, email)
+          : savedReviewSession
+            ? { participant_id: savedReviewSession.participant_id, profile_complete: true }
+            : null;
         if (existingParticipant) {
           const token = await makeToken(env, { codeHash, participant_id: existingParticipant.participant_id, exp: Date.now() + TOKEN_TTL_MS });
           return new Response(
@@ -492,7 +522,7 @@ export default {
       if (path.endsWith("/api/review/state")) {
         const body: any = await req.json().catch(() => ({}));
         if (!body?.token) return errorResponse("Missing token", 400, headers);
-        const baselineVersion = sanitizeText(body?.baseline_version, 120) || "topa_late_fusion";
+        const baselineVersion = sanitizeText(body?.baseline_version, 120) || DEFAULT_BASELINE_VERSION;
         const { session } = await getSessionFromToken(env, String(body.token), baselineVersion);
         const [snapshot, changes, feedback] = await Promise.all([getLatestSnapshot(env, session.id), listChanges(env, session.id), listFeedback(env, session.id)]);
         return new Response(
@@ -511,7 +541,7 @@ export default {
       if (path.endsWith("/api/review/sync")) {
         const body: any = await req.json().catch(() => ({}));
         if (!body?.token) return errorResponse("Missing token", 400, headers);
-        const baselineVersion = sanitizeText(body?.baseline_version, 120) || "topa_late_fusion";
+        const baselineVersion = sanitizeText(body?.baseline_version, 120) || DEFAULT_BASELINE_VERSION;
         const { participantId, session } = await getSessionFromToken(env, String(body.token), baselineVersion);
 
         const changes = Array.isArray(body?.changes) ? body.changes.slice(0, MAX_CHANGES_PER_SYNC) : [];
@@ -529,7 +559,7 @@ export default {
       if (path.endsWith("/api/review/change/delete")) {
         const body: any = await req.json().catch(() => ({}));
         if (!body?.token || !body?.change_id) return errorResponse("Missing token or change_id", 400, headers);
-        const baselineVersion = sanitizeText(body?.baseline_version, 120) || "topa_late_fusion";
+        const baselineVersion = sanitizeText(body?.baseline_version, 120) || DEFAULT_BASELINE_VERSION;
         const { session } = await getSessionFromToken(env, String(body.token), baselineVersion);
         const deletedChangeIds = await deleteRevokedHistory(env, session.id, sanitizeText(body.change_id, 160));
 
@@ -539,7 +569,7 @@ export default {
       if (path.endsWith("/api/review/export")) {
         const body: any = await req.json().catch(() => ({}));
         if (!body?.token) return errorResponse("Missing token", 400, headers);
-        const baselineVersion = sanitizeText(body?.baseline_version, 120) || "topa_late_fusion";
+        const baselineVersion = sanitizeText(body?.baseline_version, 120) || DEFAULT_BASELINE_VERSION;
         const { session } = await getSessionFromToken(env, String(body.token), baselineVersion);
         const [snapshot, changes, feedback] = await Promise.all([getLatestSnapshot(env, session.id), listChanges(env, session.id), listFeedback(env, session.id)]);
         return new Response(

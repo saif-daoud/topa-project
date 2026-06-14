@@ -118,7 +118,7 @@ function GatePage({ notice = "", onReady }: { notice?: string; onReady: (token: 
       setStatus("Checking access...");
       const result = await postJSONWithRetry<{ token: string; participant_id: string }>(
         `${API_BASE}/start`,
-        { code },
+        { code, baseline_version: BASELINE_VERSION },
         { maxAttempts: 5, timeoutMs: 5000 }
       );
 
