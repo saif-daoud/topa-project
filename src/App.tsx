@@ -65,19 +65,30 @@ function friendlyError(error: any) {
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem(STORAGE_KEYS.token) || "");
   const [participantId, setParticipantId] = useState(() => localStorage.getItem(STORAGE_KEYS.participantId) || "");
+  const [gateNotice, setGateNotice] = useState("");
 
   useEffect(() => {
     document.title = "TOPA Expert Refinement";
   }, []);
 
+  const clearSession = useCallback((notice = "") => {
+    localStorage.removeItem(STORAGE_KEYS.token);
+    localStorage.removeItem(STORAGE_KEYS.participantId);
+    setToken("");
+    setParticipantId("");
+    setGateNotice(notice);
+  }, []);
+
   if (!token || !participantId) {
     return (
       <GatePage
+        notice={gateNotice}
         onReady={(nextToken, nextParticipantId) => {
           localStorage.setItem(STORAGE_KEYS.token, nextToken);
           localStorage.setItem(STORAGE_KEYS.participantId, nextParticipantId);
           setToken(nextToken);
           setParticipantId(nextParticipantId);
+          setGateNotice("");
         }}
       />
     );
@@ -91,19 +102,14 @@ function App() {
         localStorage.setItem(STORAGE_KEYS.token, nextToken);
         setToken(nextToken);
       }}
-      onLogout={() => {
-        localStorage.removeItem(STORAGE_KEYS.token);
-        localStorage.removeItem(STORAGE_KEYS.participantId);
-        setToken("");
-        setParticipantId("");
-      }}
+      onLogout={clearSession}
     />
   );
 }
 
-function GatePage({ onReady }: { onReady: (token: string, participantId: string) => void }) {
+function GatePage({ notice = "", onReady }: { notice?: string; onReady: (token: string, participantId: string) => void }) {
   const [code, setCode] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(notice);
   const [submitting, setSubmitting] = useState(false);
 
   async function startReview() {
@@ -163,7 +169,7 @@ function ReviewPage({
   token: string;
   participantId: string;
   onTokenRefresh: (token: string) => void;
-  onLogout: () => void;
+  onLogout: (notice?: string) => void;
 }) {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [descriptions, setDescriptions] = useState<Descriptions>({});
@@ -266,7 +272,13 @@ function ReviewPage({
         setLoaded(true);
         setStatus(remoteSnapshot ? "" : "Review data loaded. New edits will be autosaved.");
       } catch (error) {
-        if (!cancelled) setStatus(friendlyError(error));
+        if (!cancelled) {
+          if (error instanceof ApiError && error.status === 401) {
+            onLogout("Session expired. Enter the access code again.");
+            return;
+          }
+          setStatus(friendlyError(error));
+        }
       }
     }
 
@@ -274,7 +286,7 @@ function ReviewPage({
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [onLogout]);
 
   const refreshToken = useCallback(async () => {
     const result = await postJSON<{ token: string }>(`${API_BASE}/refresh`, { token: tokenRef.current });
@@ -330,11 +342,15 @@ function ReviewPage({
       setSnapshotDirty(false);
       setStatus("");
     } catch (error) {
+      if (error instanceof ApiError && error.status === 401) {
+        onLogout("Session expired. Enter the access code again.");
+        return;
+      }
       setStatus(friendlyError(error));
     } finally {
       setSyncing(false);
     }
-  }, [changes, feedbackMap, refreshToken, reviewData, snapshotDirty, syncing]);
+  }, [changes, feedbackMap, onLogout, refreshToken, reviewData, snapshotDirty, syncing]);
 
   useEffect(() => {
     if (!loaded) return;
@@ -618,7 +634,7 @@ function ReviewPage({
             >
               Export review
             </button>
-            <button className="btn btnGhost" type="button" onClick={onLogout}>
+            <button className="btn btnGhost" type="button" onClick={() => onLogout()}>
               Logout
             </button>
           </div>
