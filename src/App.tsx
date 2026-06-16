@@ -180,6 +180,7 @@ function ReviewPage({
   const [snapshotDirty, setSnapshotDirty] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState("Loading review data...");
+  const [remoteStateError, setRemoteStateError] = useState("");
   const [syncing, setSyncing] = useState(false);
   const tokenRef = useRef(token);
   const reviewDataRef = useRef(reviewData);
@@ -225,9 +226,10 @@ function ReviewPage({
         let remoteSnapshot: any = null;
         let remoteChanges: ReviewChange[] = [];
         let remoteFeedback: FeedbackMap = {};
+        let remoteLoadError = "";
 
         try {
-          const remote = await postJSON<any>(`${API_BASE}/review/state`, { token: tokenRef.current, baseline_version: BASELINE_VERSION }, { timeoutMs: 8000 });
+          const remote = await postJSON<any>(`${API_BASE}/review/state`, { token: tokenRef.current, baseline_version: BASELINE_VERSION }, { timeoutMs: 30000 });
           remoteSnapshot = remote?.snapshot ? annotateReviewIds(remote.snapshot) : null;
           remoteChanges = Array.isArray(remote?.changes)
             ? remote.changes.map((row: any) => ({
@@ -254,9 +256,11 @@ function ReviewPage({
                 ])
               )
             : {};
+          setRemoteStateError("");
         } catch (error) {
           if (error instanceof ApiError && error.status === 401) throw error;
-          setStatus(friendlyError(error));
+          remoteLoadError = friendlyError(error);
+          setRemoteStateError(remoteLoadError);
         }
 
         if (cancelled) return;
@@ -272,7 +276,15 @@ function ReviewPage({
         setFeedbackMap((current) => ({ ...remoteFeedback, ...current }));
         setActiveComponent(manifestData.components[0] ?? "");
         setLoaded(true);
-        setStatus(hasUnsyncedLocalWork ? "Local unsaved edits restored. They will autosave." : remoteSnapshot ? "" : "Review data loaded. New edits will be autosaved.");
+        setStatus(
+          remoteLoadError
+            ? remoteLoadError
+            : hasUnsyncedLocalWork
+              ? "Local unsaved edits restored. They will autosave."
+              : remoteSnapshot
+                ? ""
+                : "Review data loaded. New edits will be autosaved."
+        );
       } catch (error) {
         if (!cancelled) {
           if (error instanceof ApiError && error.status === 401) {
@@ -671,6 +683,7 @@ function ReviewPage({
               changes={changes}
               onRevoke={revokeChange}
               onRemoveRevoked={removeRevokedHistory}
+              remoteStateError={remoteStateError}
               revokedIds={statusModel.revokedIds}
             />
           </aside>
@@ -1080,11 +1093,13 @@ function ChangeLog({
   changes,
   onRevoke,
   onRemoveRevoked,
+  remoteStateError,
   revokedIds,
 }: {
   changes: ReviewChange[];
   onRevoke: (change: ReviewChange) => void;
   onRemoveRevoked: (change: ReviewChange) => void;
+  remoteStateError: string;
   revokedIds: Set<string>;
 }) {
   const newest = changes
@@ -1094,7 +1109,7 @@ function ChangeLog({
     <div className="sideSection changeLog">
       <div className="sectionLabel">Change log</div>
       {newest.length === 0 ? (
-        <div className="mutedText">No edits yet.</div>
+        <div className="mutedText">{remoteStateError ? "Remote change log could not be loaded. Refresh the page or log in again." : "No edits yet."}</div>
       ) : (
         <div className="changeList">
           {newest.map((change) => (
