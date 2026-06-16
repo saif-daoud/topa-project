@@ -252,7 +252,7 @@ async function ensureReviewSession(env: Env, participantId: string, baselineVers
   return { id, participant_id: participantId, baseline_version: baselineVersion };
 }
 
-async function getLatestNonEmptySession(env: Env, baselineVersion: string) {
+async function getSharedReviewSession(env: Env, baselineVersion: string) {
   return (
     (await env.DB.prepare(
       `WITH activity AS (
@@ -262,10 +262,14 @@ async function getLatestNonEmptySession(env: Env, baselineVersion: string) {
        )
        SELECT rs.id, rs.participant_id, rs.baseline_version
        FROM review_sessions rs
-       JOIN activity ON activity.session_id = rs.id
+       LEFT JOIN activity ON activity.session_id = rs.id
        WHERE rs.baseline_version = ?
        GROUP BY rs.id, rs.participant_id, rs.baseline_version
-       ORDER BY MAX(activity.activity_at) DESC
+       ORDER BY
+         CASE WHEN MAX(activity.activity_at) IS NULL THEN 0 ELSE 1 END DESC,
+         MAX(activity.activity_at) DESC,
+         rs.updated_at DESC,
+         rs.created_at DESC
        LIMIT 1`
     )
       .bind(baselineVersion)
@@ -437,12 +441,13 @@ async function deleteRevokedHistory(env: Env, sessionId: string, requestedChange
 
 async function getSessionFromToken(env: Env, token: string, baselineVersion: string) {
   const payload = await verifyToken(env, token);
+  const sharedSession = await getSharedReviewSession(env, baselineVersion);
+  if (sharedSession) return { participantId: sharedSession.participant_id, session: sharedSession };
+
   const participantId = String(payload.participant_id || "");
   if (!participantId) throw new Error("Missing participant_id");
-  const requestedSession = await ensureReviewSession(env, participantId, baselineVersion);
-  const savedReviewSession = await getLatestNonEmptySession(env, baselineVersion);
-  const session = savedReviewSession || requestedSession;
-  return { participantId: session.participant_id, session };
+  const session = await ensureReviewSession(env, participantId, baselineVersion);
+  return { participantId, session };
 }
 
 function errorResponse(message: string, status: number, headers: HeadersInit) {
@@ -475,7 +480,7 @@ export default {
         if (accessCode.active !== 1) return errorResponse("Code inactive", 403, headers);
         if (accessCode.expires_at && Date.now() > Date.parse(accessCode.expires_at)) return errorResponse("Code expired", 403, headers);
 
-        const savedReviewSession = email ? null : await getLatestNonEmptySession(env, baselineVersion);
+        const savedReviewSession = email ? null : await getSharedReviewSession(env, baselineVersion);
         const existingParticipant = email
           ? await dbFindParticipantByEmail(env, email)
           : savedReviewSession
@@ -499,6 +504,7 @@ export default {
         if (accessCode.uses_remaining !== null) await dbDecrementUsesRemaining(env, codeHash);
 
         const participantId = await allocateParticipantId(env, email || null);
+        await ensureReviewSession(env, participantId, baselineVersion);
         const token = await makeToken(env, { codeHash, participant_id: participantId, exp: Date.now() + TOKEN_TTL_MS });
         return new Response(JSON.stringify({ ok: true, token, participant_id: participantId, resumed: false, prefill_email: email || null }), { headers });
       }

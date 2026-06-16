@@ -63,12 +63,14 @@ function friendlyError(error: any) {
 }
 
 function App() {
-  const [token, setToken] = useState(() => localStorage.getItem(STORAGE_KEYS.token) || "");
-  const [participantId, setParticipantId] = useState(() => localStorage.getItem(STORAGE_KEYS.participantId) || "");
+  const [token, setToken] = useState("");
+  const [participantId, setParticipantId] = useState("");
   const [gateNotice, setGateNotice] = useState("");
 
   useEffect(() => {
     document.title = "TOPA Expert Refinement";
+    localStorage.removeItem(STORAGE_KEYS.token);
+    localStorage.removeItem(STORAGE_KEYS.participantId);
   }, []);
 
   const clearSession = useCallback((notice = "") => {
@@ -84,8 +86,6 @@ function App() {
       <GatePage
         notice={gateNotice}
         onReady={(nextToken, nextParticipantId) => {
-          localStorage.setItem(STORAGE_KEYS.token, nextToken);
-          localStorage.setItem(STORAGE_KEYS.participantId, nextParticipantId);
           setToken(nextToken);
           setParticipantId(nextParticipantId);
           setGateNotice("");
@@ -99,7 +99,6 @@ function App() {
       token={token}
       participantId={participantId}
       onTokenRefresh={(nextToken) => {
-        localStorage.setItem(STORAGE_KEYS.token, nextToken);
         setToken(nextToken);
       }}
       onLogout={clearSession}
